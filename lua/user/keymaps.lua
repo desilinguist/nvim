@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -28,12 +28,13 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-d>", ":Bdelete<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -60,12 +61,85 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+-- disable Ex mode:
+keymap("n", "Q", "<Nop>", opts)
 
 -- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>ft", ":Format<cr>", opts)
+
+-- Telescope
+-- keymap("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", opts)
+-- keymap("n", "<leader>gt", "<cmd>Telescope git_status<CR>", opts)
+-- keymap("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", opts)
+-- keymap(
+-- 	"n",
+-- 	"<leader>ff",
+-- 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+-- 	opts
+-- )
+-- keymap(
+-- 	"n",
+-- 	"<leader>fb",
+-- 	"<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+-- 	opts
+-- )
+-- keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+-- keymap(
+-- 	"n",
+-- 	"<leader>fo",
+-- 	"<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+-- 	opts
+-- )
+-- keymap(
+-- 	"n",
+-- 	"<leader>r",
+-- 	"<cmd>lua require'telescope.builtin'.lsp_document_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+-- 	opts
+-- )
+-- keymap(
+-- 	"n",
+-- 	"<leader>rg",
+-- 	"<cmd>lua require'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+-- 	opts
+-- )
+
+-- Comment
+-- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+-- keymap("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
+--
+-- Toggleterm external applications
+-- lazygit
+-- keymap(
+-- 	"n",
+-- 	"<leader>lg",
+-- 	"<cmd>lua _LAZYGIT_TOGGLE()<cr>",
+-- 	opts
+-- )
+-- -- gitui
+-- keymap(
+-- 	"n",
+-- 	"<leader>gu",
+-- 	"<cmd>lua _GITUI_TOGGLE()<cr>",
+-- 	opts
+-- )
+-- -- htop
+-- keymap(
+-- 	"n",
+-- 	"<leader>ht",
+-- 	"<cmd>lua _HTOP_TOGGLE()<cr>",
+-- 	opts
+-- )
+-- -- ncdu
+-- keymap(
+-- 	"n",
+-- 	"<leader>du",
+-- 	"<cmd>lua _NCDU_TOGGLE()<cr>",
+-- 	opts
+-- )
+--
+-- Trouble diagnostics window
+-- keymap("n", "<leader>sa", ":Trouble<CR>", opts)
+
+-- Projects window
+-- keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)

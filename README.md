@@ -1,19 +1,19 @@
 # Neovim from scratch
 
+This is pretty much entirely based on the excellent [Neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch).
+
 ## Try out this config
 
 Make sure to remove or move your current `nvim` directory
 
 ```
-git clone git@github.com:ChristianChiarulli/Neovim-from-scratch.git ~/.config/nvim
+git clone git@github.com:desilinguist/nvim.git ~/.config/nvim
 ```
 
 Run `nvim` and wait for the plugins to be installed 
 
 **NOTE** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
 
-
-each video will be associated with a branch so checkout the one you are interested in
 
 ## Get healthy
 

@@ -12,8 +12,19 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.black.with({
+			command = "/Users/nmadnani/anaconda/bin/black",
+			extra_args = { "--fast", "--line-length", "100" },
+		}),
+		formatting.isort.with({
+			command = "/Users/nmadnani/anaconda/bin/isort",
+		}),
+		diagnostics.flake8.with({
+			command = "/Users/nmadnani/anaconda/bin/flake8",
+		}),
+		diagnostics.pydocstyle.with({
+			command = "/Users/nmadnani/anaconda/bin/pydocstyle",
+		}),
 		formatting.stylua,
-    -- diagnostics.flake8
 	},
 })

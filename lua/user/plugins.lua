@@ -117,6 +117,12 @@ return packer.startup(function(use)
 	-- filetype plugin replacing slow built-in filetype.vim
 	use("nathom/filetype.nvim")
 
+	-- sessions
+	use("rmagatti/auto-session")
+
+	-- stabilize
+	use("luukvbaal/stabilize.nvim")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

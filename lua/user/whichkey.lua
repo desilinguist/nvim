@@ -158,7 +158,7 @@ local mappings = {
 			"Prev Diagnostic",
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+		q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = {
 			"<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown{ previewer = false })<cr>",
 			"Document Symbols",

@@ -81,6 +81,8 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "LinArcX/telescope-env.nvim" })
 
 	-- Treesitter
 	use({
@@ -122,6 +124,12 @@ return packer.startup(function(use)
 
 	-- stabilize
 	use("luukvbaal/stabilize.nvim")
+
+	-- octo for github integration
+	use("pwntester/octo.nvim")
+
+	-- cheatsheets
+	use("sudormrfbin/cheatsheet.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

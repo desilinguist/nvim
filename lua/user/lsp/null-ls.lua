@@ -10,15 +10,18 @@ local diagnostics = null_ls.builtins.diagnostics
 
 -- are we local or on the ETS servers
 local machine = os.getenv("NVIM_MACHINE")
-local linter_path = "/Users/nmadnani/anaconda/bin/"
-if machine == "remote" then
+local linter_path
+if machine == "ets" then
     linter_path = "/opt/python/linters/bin/"
+elseif machine == "ec2" then
+    linter_path = "/home/ec2-user/miniconda/bin/"
+else
+    linter_path = "/Users/nmadnani/anaconda/bin/"
 end
 
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({
 			command = linter_path .. "black",
 			extra_args = { "--fast", "--line-length", "100" },

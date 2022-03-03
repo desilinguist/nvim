@@ -40,11 +40,17 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 -- are we local or on the ETS servers
 local machine = os.getenv("NVIM_MACHINE")
-local lazygit_dir = "/opt/local/bin/"
-local gitui_dir = "/opt/local/bin/"
-if machine == "remote" then
+local lazygit_dir
+local gitui_dir
+if machine == "ets" then
     lazygit_dir = "/opt/python/lazygit/bin/"
     gitui_dir = "/opt/rust/cargo/bin/"
+elseif machine == "ec2" then
+    lazygit_dir = "/home/ec2-user/miniconda/bin/"
+    gitui_dir = ""
+else
+    lazygit_dir = "/opt/local/bin/"
+    gitui_dir = "/opt/local/bin/"
 end
 
 local Terminal = require("toggleterm.terminal").Terminal

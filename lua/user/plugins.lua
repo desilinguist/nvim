@@ -131,11 +131,14 @@ return packer.startup(function(use)
 	-- cheatsheets
 	use("sudormrfbin/cheatsheet.nvim")
 
-    -- cursorline modes
-    use("mvllow/modes.nvim")
+	-- cursorline modes
+	use("mvllow/modes.nvim")
 
-    -- advanced text objects
-    use("wellle/targets.vim")
+	-- advanced text objects
+	use("wellle/targets.vim")
+
+	-- remove trailing whitespace and extra empty lines at the end
+	use({ "mcauley-penney/tidy.nvim", branch = "cfg" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
@@ -143,4 +146,3 @@ return packer.startup(function(use)
 		require("packer").sync()
 	end
 end)
-

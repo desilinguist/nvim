@@ -64,5 +64,11 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- disable Ex mode:
 keymap("n", "Q", "<Nop>", opts)
 
- -- shortcut to quickly insert newline in normal mode
+-- disable arrow keys to learn hjkl
+keymap("n", "<up>", "<Nop>", opts)
+keymap("n", "<down>", "<Nop>", opts)
+keymap("n", "<left>", "<Nop>", opts)
+keymap("n", "<right>", "<Nop>", opts)
+
+-- shortcut to quickly insert newline in normal mode
 keymap("n", "oo", "o<ESC>k", opts)

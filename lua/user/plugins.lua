@@ -140,6 +140,9 @@ return packer.startup(function(use)
 	-- remove trailing whitespace and extra empty lines at the end
 	use({ "mcauley-penney/tidy.nvim", branch = "cfg" })
 
+	-- show colorcolumn but in virtual text
+	use("lukas-reineke/virt-column.nvim")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

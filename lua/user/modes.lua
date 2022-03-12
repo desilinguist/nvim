@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-require("modes").setup({
+modes.setup({
 	colors = {
 		copy = "#f5c359",
 		delete = "#c75c6a",

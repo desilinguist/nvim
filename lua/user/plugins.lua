@@ -53,7 +53,7 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 	use("akinsho/toggleterm.nvim")
 
-	-- Colorschemes
+    -- Colorschemes
 	use("folke/tokyonight.nvim")
 	use("lunarvim/darkplus.nvim")
 	use("sainnhe/sonokai")

@@ -95,7 +95,7 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 
 	-- Project
-	use("ahmedkhalf/project.nvim")
+	-- use("ahmedkhalf/project.nvim")
 
 	-- Impatient for lua caching
 	use("lewis6991/impatient.nvim")
@@ -143,7 +143,10 @@ return packer.startup(function(use)
 	-- show colorcolumn but in virtual text
 	use("lukas-reineke/virt-column.nvim")
 
-	-- Automatically set up your configuration after cloning packer.nvim
+	-- show colorcolumn but in virtual text
+	use("rmagatti/session-lens")
+
+    -- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

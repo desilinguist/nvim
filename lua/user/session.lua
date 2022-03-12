@@ -6,4 +6,5 @@ end
 session.setup({
 	log_level = "info",
 	auto_session_suppress_dirs = { "~/", "~/work" },
+	pre_save_cmds = { "tabdo NvimTreeClose" },
 })

@@ -70,5 +70,10 @@ keymap("n", "<down>", "<Nop>", opts)
 keymap("n", "<left>", "<Nop>", opts)
 keymap("n", "<right>", "<Nop>", opts)
 
+-- map j and k to gj and gk to navigate
+-- by screen lines, not file lines
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
+
 -- shortcut to quickly insert newline in normal mode
 keymap("n", "oo", "o<ESC>k", opts)

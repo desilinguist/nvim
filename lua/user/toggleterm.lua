@@ -62,6 +62,7 @@ end
 
 local lazygit = Terminal:new({
 	cmd = lazygit_dir .. "lazygit",
+    dir = vim.cmd("pwd"),
 	direction = "float",
 	hidden = true,
 	on_open = function(term)

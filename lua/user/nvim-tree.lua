@@ -21,6 +21,8 @@ vim.g.nvim_tree_icons = {
 	},
 }
 
+vim.g.nvim_tree_git_hl = 1
+
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
 	return

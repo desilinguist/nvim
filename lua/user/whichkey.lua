@@ -78,9 +78,10 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
+
 local mappings = {
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
-	["`"] = { '<cmd>Cheatsheet<CR>', "Show cheatsheet" },
+	["`"] = { "<cmd>Cheatsheet<CR>", "Show cheatsheet" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["b"] = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -95,12 +96,13 @@ local mappings = {
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	["M"] = { "<cmd>! open -a 'Marked 2' %:p<cr>", "Markdown Preview" },
 	["n"] = { "<cmd>enew<CR>", "New Buffer" },
 	["o"] = {
 		"<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Old Files",
 	},
-	["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+	-- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 
@@ -171,7 +173,7 @@ local mappings = {
 	},
 	s = {
 		name = "Search",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		b = { "<cmd>lua browsefn()<cr>", "Bookmarks" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },

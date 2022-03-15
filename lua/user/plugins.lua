@@ -143,8 +143,11 @@ return packer.startup(function(use)
 	-- show colorcolumn but in virtual text
 	use("lukas-reineke/virt-column.nvim")
 
-	-- show colorcolumn but in virtual text
+	-- use a session manager and finder
 	use("rmagatti/session-lens")
+
+    -- plugin for easy browsing
+    use("lalitmee/browse.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

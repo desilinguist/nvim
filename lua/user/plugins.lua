@@ -148,6 +148,9 @@ return packer.startup(function(use)
     -- plugin for easy browsing
     use("lalitmee/browse.nvim")
 
+    -- plugin for surround operation
+    use("tpope/vim-surround")
+
     -- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

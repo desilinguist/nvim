@@ -38,6 +38,7 @@ packer.init({
 	},
 })
 
+
 -- Install your plugins here
 return packer.startup(function(use)
 	-- My plugins here
@@ -45,7 +46,7 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	use("numToStr/Comment.nvim") -- Easily comment stuff
+	use({"numToStr/Comment.nvim", tag="v0.6"}) -- Easily comment stuff
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 	use("akinsho/bufferline.nvim")
@@ -66,6 +67,7 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-calc")
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine

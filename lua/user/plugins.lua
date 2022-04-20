@@ -38,7 +38,6 @@ packer.init({
 	},
 })
 
-
 -- Install your plugins here
 return packer.startup(function(use)
 	-- My plugins here
@@ -46,7 +45,7 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	use({"numToStr/Comment.nvim", tag="v0.6"}) -- Easily comment stuff
+	use({ "numToStr/Comment.nvim", tag = "v0.6" }) -- Easily comment stuff
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 	use("akinsho/bufferline.nvim")
@@ -54,7 +53,7 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 	use("akinsho/toggleterm.nvim")
 
-    -- Colorschemes
+	-- Colorschemes
 	use("folke/tokyonight.nvim")
 	use("lunarvim/darkplus.nvim")
 	use("sainnhe/sonokai")
@@ -90,6 +89,7 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
+		commit = "6a437db0124823f9fe89c1de9a3b536ce1f103f3",
 	})
 
 	-- Git
@@ -147,13 +147,13 @@ return packer.startup(function(use)
 	-- use a session manager and finder
 	use("rmagatti/session-lens")
 
-    -- plugin for easy browsing
-    use("lalitmee/browse.nvim")
+	-- plugin for easy browsing
+	use("lalitmee/browse.nvim")
 
-    -- plugin for surround operation
-    use("tpope/vim-surround")
+	-- plugin for surround operation
+	use("tpope/vim-surround")
 
-    -- Automatically set up your configuration after cloning packer.nvim
+	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

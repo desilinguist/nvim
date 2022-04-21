@@ -36,5 +36,6 @@ null_ls.setup({
 			command = linter_path .. "pydocstyle",
 		}),
 		formatting.stylua,
+        formatting.terraform_fmt,
 	},
 })

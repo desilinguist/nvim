@@ -153,6 +153,9 @@ return packer.startup(function(use)
 	-- plugin for surround operation
 	use("tpope/vim-surround")
 
+	-- plugin to show current scope in status line
+	use("SmiteshP/nvim-gps")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

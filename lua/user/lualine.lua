@@ -49,6 +49,16 @@ local location = {
 	padding = 0,
 }
 
+
+local short_hostname = function ()
+    local full_hostname = vim.loop.os_gethostname()
+    local parts = {}
+    for part in string.gmatch(full_hostname, "[^%.]+") do
+        table.insert(parts, part)
+    end
+    return parts[1]
+end
+
 -- cool function for progress
 -- local progress = function()
 -- 	local current_line = vim.fn.line(".")
@@ -90,7 +100,7 @@ lualine.setup({
 			"filename",
 		},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { "hostname", diff, "fileformat", spaces, "encoding" },
+		lualine_x = { short_hostname, diff, "fileformat", spaces, "encoding" },
 		lualine_y = { { gps.get_location, cond = gps.is_available } },
 		lualine_z = {},
 	},

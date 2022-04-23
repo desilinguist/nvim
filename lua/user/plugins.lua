@@ -45,7 +45,7 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	use({ "numToStr/Comment.nvim", tag = "v0.6" }) -- Easily comment stuff
+	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 	use("akinsho/bufferline.nvim")
@@ -59,11 +59,11 @@ return packer.startup(function(use)
 	use("sainnhe/sonokai")
 
 	-- cmp plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+    use("hrsh7th/nvim-cmp") -- The completion plugin
+    use("hrsh7th/cmp-buffer") -- buffer completions
+    use("hrsh7th/cmp-path") -- path completions
+    use("hrsh7th/cmp-cmdline") -- cmdline completions
+    use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-calc")
@@ -89,7 +89,6 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
-		commit = "6a437db0124823f9fe89c1de9a3b536ce1f103f3",
 	})
 
 	-- Git
@@ -164,8 +163,8 @@ return packer.startup(function(use)
 			-- vim.api.nvim_set_keymap("n", "j", "<Plug>(faster_move_j)", { noremap = false, silent = true })
 			-- vim.api.nvim_set_keymap("n", "k", "<Plug>(faster_move_k)", { noremap = false, silent = true })
 			-- or
-			vim.api.nvim_set_keymap('n', 'j', '<Plug>(faster_move_gj)', {noremap=false, silent=true})
-			vim.api.nvim_set_keymap('n', 'k', '<Plug>(faster_move_gk)', {noremap=false, silent=true})
+			vim.api.nvim_set_keymap("n", "j", "<Plug>(faster_move_gj)", { noremap = false, silent = true })
+			vim.api.nvim_set_keymap("n", "k", "<Plug>(faster_move_gk)", { noremap = false, silent = true })
 			-- if you need map in visual mode
 			-- vim.api.nvim_set_keymap('v', 'j', '<Plug>(faster_vmove_j)', {noremap=false, silent=true})
 			-- vim.api.nvim_set_keymap('v', 'k', '<Plug>(faster_vmove_k)', {noremap=false, silent=true})

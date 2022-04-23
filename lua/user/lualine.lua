@@ -49,14 +49,13 @@ local location = {
 	padding = 0,
 }
 
-
-local short_hostname = function ()
-    local full_hostname = vim.loop.os_gethostname()
-    local parts = {}
-    for part in string.gmatch(full_hostname, "[^%.]+") do
-        table.insert(parts, part)
-    end
-    return parts[1]
+local short_hostname = function()
+	local full_hostname = vim.loop.os_gethostname()
+	local parts = {}
+	for part in string.gmatch(full_hostname, "[^%.]+") do
+		table.insert(parts, part)
+	end
+	return parts[1]
 end
 
 -- cool function for progress
@@ -88,6 +87,7 @@ lualine.setup({
 		-- section_separators = { left = "", right = "" },
 		disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
+		globalstatus = true,
 	},
 	sections = {
 		lualine_a = { "mode" },

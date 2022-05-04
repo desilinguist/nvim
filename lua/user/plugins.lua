@@ -171,6 +171,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+    -- treesitter text objects
+    use("nvim-treesitter/nvim-treesitter-textobjects")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

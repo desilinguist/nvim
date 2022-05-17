@@ -51,6 +51,7 @@ nvim_tree.setup({
 		enable = true,
 		auto_open = true,
 	},
+    reload_on_bufenter = true,
 	diagnostics = {
 		enable = true,
 		icons = {

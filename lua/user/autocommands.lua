@@ -1,40 +1,63 @@
--- autocmd! remove all autocommands, if entered under a group it will clear that group
-vim.cmd([[
-  augroup _general_settings
-    autocmd!
-    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200})
-    autocmd BufWinEnter * :set formatoptions-=cro
-    autocmd FileType qf set nobuflisted
-  augroup end
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
+  callback = function()
+    vim.cmd [[
+      nnoremap <silent> <buffer> q :close<CR>
+      set nobuflisted
+    ]]
+  end,
+})
 
-  augroup _git
-    autocmd!
-    autocmd FileType gitcommit setlocal wrap
-    autocmd FileType gitcommit setlocal spell
-  augroup end
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  callback = function()
+    vim.cmd "set formatoptions-=cro"
+  end,
+})
 
-  augroup _markdown_and_rst
-    autocmd!
-    autocmd FileType markdown,rst setlocal wrap
-    autocmd FileType markdown,rst setlocal spell
-    autocmd FileType markdown,rst setlocal colorcolumn=80
-    autocmd FileType markdown,rst setlocal textwidth=79
-  augroup end
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+  callback = function()
+    vim.highlight.on_yank { higroup = "Search", timeout = 200 }
+  end,
+})
 
-  augroup _python
-    autocmd!
-    autocmd FileType python setlocal colorcolumn=80,100
-  augroup end
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+  callback = function()
+    vim.cmd "tabdo wincmd ="
+  end,
+})
 
-  augroup _auto_resize
-    autocmd!
-    autocmd VimResized * tabdo wincmd =
-  augroup end
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "gitcommit" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
 
-  augroup _alpha
-    autocmd!
-    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-  augroup end
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "markdown", "rst" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+    vim.opt_local.textwidth = 79
+    vim.opt_local.colorcolumn = "+1"
+  end,
+})
 
-]])
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "python" },
+  callback = function()
+    vim.opt_local.textwidth = 120
+    vim.opt_local.colorcolumn = "-40,-20"
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = { "AlphaReady" },
+  callback = function()
+    vim.cmd [[
+      set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+    ]]
+  end,
+})
+

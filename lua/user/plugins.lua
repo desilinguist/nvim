@@ -126,7 +126,7 @@ return packer.startup(function(use)
 	use("luukvbaal/stabilize.nvim")
 
 	-- octo for github integration
-	use("pwntester/octo.nvim")
+	-- use("pwntester/octo.nvim")
 
 	-- cheatsheets
 	use("sudormrfbin/cheatsheet.nvim")

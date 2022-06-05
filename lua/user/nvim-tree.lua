@@ -94,7 +94,16 @@ nvim_tree.setup({
 		relativenumber = false,
 	},
 	renderer = {
-        highlight_git = true,
+		highlight_git = true,
+		indent_markers = {
+			enable = false,
+			icons = {
+				corner = "└─",
+				item = "├─",
+				edge = "│ ",
+				none = "  ",
+			},
+		},
 		icons = {
 			glyphs = {
 				default = "",

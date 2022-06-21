@@ -133,7 +133,6 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "calc" },
-		{ name = "rg" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

@@ -67,7 +67,6 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp") -- lsp completions
 	use("hrsh7th/cmp-nvim-lua") -- nvim lua completions
 	use("hrsh7th/cmp-calc") -- calculator completions
-    use("lukas-reineke/cmp-rg") -- ripgrep completions
     use("lukas-reineke/cmp-under-comparator") -- better sort completion items that start with underlines
 
 

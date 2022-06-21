@@ -1,4 +1,5 @@
 require("user.options")
+require("user.notify")
 require("user.keymaps")
 require("user.plugins")
 require("user.colorscheme")

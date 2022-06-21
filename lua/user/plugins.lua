@@ -64,9 +64,12 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-path") -- path completions
     use("hrsh7th/cmp-cmdline") -- cmdline completions
     use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
-	use("hrsh7th/cmp-calc")
+	use("hrsh7th/cmp-nvim-lsp") -- lsp completions
+	use("hrsh7th/cmp-nvim-lua") -- nvim lua completions
+	use("hrsh7th/cmp-calc") -- calculator completions
+    use("lukas-reineke/cmp-rg") -- ripgrep completions
+    use("lukas-reineke/cmp-under-comparator") -- better sort completion items that start with underlines
+
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
@@ -173,6 +176,12 @@ return packer.startup(function(use)
 
     -- treesitter text objects
     use("nvim-treesitter/nvim-treesitter-textobjects")
+
+	-- treesitter context
+	-- use("nvim-treesitter/nvim-treesitter-context")
+
+    -- nvim notify
+    use("rcarriga/nvim-notify")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

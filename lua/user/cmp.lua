@@ -8,6 +8,11 @@ if not snip_status_ok then
 	return
 end
 
+local under_status_ok, undercompare = pcall(require, "cmp-under-comparator")
+if not under_status_ok then
+	return
+end
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -110,20 +115,33 @@ cmp.setup({
 			return vim_item
 		end,
 	},
+	sorting = {
+		comparators = {
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.score,
+			undercompare.under,
+			cmp.config.compare.kind,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		},
+	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "calc" },
+		{ name = "rg" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
 	window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
 		ghost_text = false,

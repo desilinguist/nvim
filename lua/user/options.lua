@@ -30,9 +30,9 @@ local options = {
 	numberwidth = 4, -- set number column width to 2 {default 4}
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 	wrap = true, -- display lines as one long line
-	scrolloff = 8, -- is one of my fav
-	sidescrolloff = 8,
-    laststatus = 3,
+	scrolloff = 8, -- number of context lines above and below when scorlling
+	sidescrolloff = 8, -- horizontal scrolling characters
+    laststatus = 3, -- use global status line instead of per buffer
 	guifont = "OperatorMono Nerd Font:h17", -- the font used in graphical neovim applications
 }
 

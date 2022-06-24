@@ -2,6 +2,15 @@ local opts = { noremap = true, silent = true }
 
 -- local term_opts = { silent = true }
 
+-- setup substitute plugin for later keymaps
+local status_ok, substitute = pcall(require, "substitute")
+if not status_ok then
+	return
+end
+
+substitute.setup({})
+
+
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -77,3 +86,14 @@ keymap("n", "k", "gk", opts)
 
 -- shortcut to quickly insert newline in normal mode
 keymap("n", "oo", "o<ESC>k", opts)
+
+-- substitute keymaps
+keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>", { noremap = true })
+keymap("n", "ss", "<cmd>lua require('substitute').line()<cr>", { noremap = true })
+keymap("n", "S", "<cmd>lua require('substitute').eol()<cr>", { noremap = true })
+keymap("x", "s", "<cmd>lua require('substitute').visual()<cr>", { noremap = true })
+
+keymap("n", "sx", "<cmd>lua require('substitute.exchange').operator()<cr>", { noremap = true })
+keymap("n", "sxx", "<cmd>lua require('substitute.exchange').line()<cr>", { noremap = true })
+keymap("x", "X", "<cmd>lua require('substitute.exchange').visual()<cr>", { noremap = true })
+keymap("n", "sxc", "<cmd>lua require('substitute.exchange').cancel()<cr>", { noremap = true })

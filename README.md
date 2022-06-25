@@ -13,15 +13,15 @@ Markdown, Bash, and Terraform.
 
 1. [Install Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim). I
    am a Mac user and use the excellent [macports](https://macports.org) to
-   install Neovim as follows: `sudo port install neovim`.  o use homebrew
-   instead of macports, run `brew install neovim`.
+   install Neovim as follows: `sudo port install neovim`.  To use
+   [homebrew](https://brew.sh) instead of macports, run `brew install neovim`.
 
    This will install Neovim v0.7.0 which is the version that this configuration
    has been tested to work with. If you install an older or a newer release of
    Neovim, there is no guarantee that this configuration will work.
 
 2. In your base conda directory, install the following packages: `black`,
-   `flake8`, `isort`, `node`, `pydocstyle`.
+   `flake8`, `isort`, and `pydocstyle`.
 
 3. Use macports to install `node` and `npm`: `sudo port install nodejs18 npm7`.
    If you use homebrew, run `brew install node@18`.

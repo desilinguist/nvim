@@ -46,12 +46,12 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
-	use("kyazdani42/nvim-web-devicons")
-	use("kyazdani42/nvim-tree.lua")
-	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
-	use("nvim-lualine/lualine.nvim")
-	use("akinsho/toggleterm.nvim")
+	use("kyazdani42/nvim-web-devicons") -- Use fancy icons for various file types
+	use("kyazdani42/nvim-tree.lua") -- Use a fancy filetree side bar
+	use("akinsho/bufferline.nvim") -- Easy graphical switching between open buffers
+	use("moll/vim-bbye") -- Easy buffer closing without messing up layouts
+	use("nvim-lualine/lualine.nvim") -- Fancy status line at the bottom
+	use("akinsho/toggleterm.nvim") -- Open terminals and terminal programs in floating windows
 
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
@@ -77,9 +77,9 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-	use("tamago324/nlsp-settings.nvim")
-	use("folke/trouble.nvim")
-	use("ray-x/lsp_signature.nvim")
+	use("tamago324/nlsp-settings.nvim") -- Common null-ls settings
+	use("folke/trouble.nvim") -- Nice way to show LSP diagnostics
+	use("ray-x/lsp_signature.nvim") -- Show signature of any function while typing it
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -94,9 +94,6 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-
-	-- Project
-	-- use("ahmedkhalf/project.nvim")
 
 	-- Impatient for lua caching
 	use("lewis6991/impatient.nvim")

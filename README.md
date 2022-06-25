@@ -1,58 +1,78 @@
-# Neovim from scratch
+# Opinionated NeoVim Configuration
 
-This is pretty much entirely based on the excellent [Neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch).
+This repository contains my configuration files for the
+[Neovim](https://neovim.io) editor.
 
-## Try out this config
+## Introduction
 
-Make sure to remove or move your current `nvim` directory
+The configuration is based primarily on my personal preferences and focused
+mainly on the programming languages and tools that I use daily: Python,
+Markdown, Bash, and Terraform.
 
-```
-git clone git@github.com:desilinguist/nvim.git ~/.config/nvim
-```
+## How to use
 
-Run `nvim` and wait for the plugins to be installed 
+1. [Install Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim). I
+   am a Mac user and use the excellent [macports](https://macports.org) to
+   install Neovim as follows: `sudo port install neovim`.  o use homebrew
+   instead of macports, run `brew install neovim`.
 
-**NOTE** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
+   This will install Neovim v0.7.0 which is the version that this configuration
+   has been tested to work with. If you install an older or a newer release of
+   Neovim, there is no guarantee that this configuration will work.
+
+2. In your base conda directory, install the following packages: `black`,
+   `flake8`, `isort`, `node`, `pydocstyle`.
+
+3. Use macports to install `node` and `npm`: `sudo port install nodejs18 npm7`.
+   If you use homebrew, run `brew install node@18`.
+
+4. Clone this repository:
+
+   ```
+   git clone git@github.com:desilinguist/nvim.git ~/.config/nvim
+   ```
+
+   If you already use Neovim, make sure to remove or move your current
+   `$HOME/.config/nvim` directory,
+
+5. Modify line 19 in `$HOME/.config/nvim/lua/user/lsp/null-ls.lua` to change
+   the path "/Users/nmadnani/anaconda/bin" to the absolute path for your base
+   conda environment's `bin` directory.
+
+6. Run `nvim` and wait for all the plugins to be installed.
 
 
-## Get healthy
+## Troubleshooting
 
-Open `nvim` and enter the following:
+If you have any issues or notice any error messages, run `:checkhealth` with
+Neovim open to run health checks and report any issues it finds.
 
-```
-:checkhealth
-```
+## A note on updating plugins
 
-You'll probably notice you don't have support for copy/paste also that python and node haven't been setup
+Most Neovim plugins are under heavy active development and are updated multiple
+times a day. While this can be useful to get new features and bugfixes, it may
+also sometimes break a working configuration since plugin authors usually
+target nightly releases of Neovim. If you do not want to have to deal with
+broken configurations, you have two options:
 
-So let's fix that
+- Do not *ever* run `:PackerUpdate` or `:PackerSync` (mapped to the keyboard
+  shortcut `Space + p + u`).
 
-First we'll fix copy/paste
+- Modify the file `$HOME/.config/nvim/lua/user/plugins.lua` to lock the plugins
+  down after initial installation. To do so, simply add `lock=true` to all the
+  `use` statements in that file, e.g., `use("hrsh7th/nvim-cmp", lock=True)`.
 
-- On mac `pbcopy` should be builtin
+## Useful resources
 
-- On Ubuntu
+The following resources will be extremely useful for any Neovim user.
 
-  ```
-  sudo apt install xsel
-  ```
+- [Neovim-from-scratch](https://www.youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ):
+the excellent YouTube series on configuring Neovim, on which my configuration is almost entirely based.
 
-- On Arch Linux
+- [Awesome Neovim](https://github.com/rockerBOO/awesome-neovim)
 
-  ```
-  sudo pacman -S xsel
-  ```
+- [/r/neovim](https://reddit.com/r/neovim)
 
-Next we need to install python support (node is optional)
+- [Neovimcraft](https://neovimcraft.com)
 
-- Neovim python support
-
-  ```
-  pip install pynvim
-  ```
-
-- Neovim node support
-
-  ```
-  npm i -g neovim
-  ```
+- [Vim Cheatsheet](https://vim.rtorr.com)

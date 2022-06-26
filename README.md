@@ -23,8 +23,16 @@ Markdown, Bash, and Terraform.
 2. In your base conda directory, install the following packages: `black`,
    `flake8`, `isort`, and `pydocstyle`.
 
-3. Use macports to install `node` and `npm`: `sudo port install nodejs18 npm7`.
-   If you use homebrew, run `brew install node@18`.
+3. Use macports to install additional external packages:
+
+   ```text
+   sudo port install htop lazygit ncdu nodejs18 npm7
+   ```
+
+   If you use homebrew, run
+   ```text
+    brew install htop lazygit ncdu node@18
+   ```
 
 4. Clone this repository:
 

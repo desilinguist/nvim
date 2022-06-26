@@ -84,8 +84,9 @@ keymap("n", "<right>", "<Nop>", opts)
 keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
 
--- shortcut to quickly insert newline in normal mode
-keymap("n", "oo", "o<ESC>k", opts)
+-- shortcut to quickly insert newline in normal mode above and below
+keymap("n", "oo", "m`o<ESC>``", opts)
+keymap("n", "OO", "m`O<ESC>``", opts)
 
 -- substitute keymaps
 keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>", { noremap = true })

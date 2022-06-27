@@ -1,4 +1,4 @@
-# Short Neovim Demo
+# How I learned to stop worrying and love Neovim (the keyboard)
 
 This folder contains resources for a hands-on demo of Neovim. This demo is far
 from comprehensive; its only goals are as follows:
@@ -6,12 +6,15 @@ from comprehensive; its only goals are as follows:
 - show you what's possible with a glorious keyboard-first IDE!
 - give you the tools and resources to get you editing ASAP!
 
-DO NOT try to memorize the keymaps as we go along! Most are all listed here and in the
-Vim cheatsheet I linked to for later perusal and, most importantly, practice! Plus you can
-ping me on Teams at any time if you have any questions!
+DO NOT try to memorize the keymaps as we go along! They are all listed here for later perusal
+and, most importantly, practice! Plus you can ping me on Teams at any time if you have
+any questions!
+
+
 
 # Contents
 
+- [Why Neovim?](#why)
 - [Orient yourself](#orient)
 - [Text editing & navigation](#textediting)
   + [Level 0](#level0)
@@ -22,17 +25,26 @@ ping me on Teams at any time if you have any questions!
 - [Higher-level operations](#highlevel)
   + [File navigation](#files)
   + [Code navigation & editing](#code)
-  + [Embedded terminals & system programs](#terminals)
+  + [Embedded terminals & external programs](#terminals)
   + [Git integration](#git)
 - [Things to explore](#extras)
+
+<a name="why"></a>
+## Why choose Neovim?
+
+- Graphical text editors cannot run in *all* environments!
+- VS Code is a great editor but closed-source, bloated, slow, and less private.
+- Sublime Text is a great editor but closed-source, less functional, and ... "cosmetically challenged!"
+- Vim has been around since 1991 and is not going anywhere!
+- Neovim is open-source, under heavy development with a clear roadmap, really, really fast, and with a boatload of awesome plugins!
 
 <a name="orient"></a>
 ## Orient yourself
 
 Let's open Neovim and try to identify all the parts we see on the screen.
 
-- bufferline (row of "tabs" at the top)
-- statusline ("almost" bottom of the screen)
+- "bufferline" (row of "tabs" at the top)
+- "statusline" ("almost" bottom of the screen)
 - command window ("real" bottom of the screen bottom of the screen)
 - line numbers (note relative)
 - `:w` (write current buffer to disk)
@@ -219,7 +231,7 @@ ACCIDENTALLY SPLIT INTO TWO.
 
 
 <a name="terminals"></a>
-### Embedded terminals & system programs
+### Embedded terminals & external programs
 - Keymap prefix for terminal mode : space + t
 - Open floating terminal : space + t + f(loat)
 - Open vertical terminal : space + t + v(ertical)
@@ -239,13 +251,15 @@ ACCIDENTALLY SPLIT INTO TWO.
   + quit and go back to neovim : q
   + switch to various sections : 1-5
   + switch between tabs in a section : ] or [
-  + Move up/down : k/j
-  + Stage/unstage file : space
-  + Commit : c (shift + c to use neovim for writing commit message!)
+  + move up/down in any section : k/j
+  + stage/unstage file : space
+  + commit : c (shift + c to use neovim for writing commit message!)
+  + discard all changes in file/commit : d
+  + reword message for selected commit: r/shift + r
+  + amend selected commit to include staged files : shift + a
   + pull : p
-  + discard all changes : d
-  + Push : shift + p
-  + Fetch any branch : f
+  + push : shift + p
+  + fetch any branch : f
   + create new branch : n
   + rebase active branch on selected branch : r
 - Useful tips:
@@ -254,8 +268,12 @@ ACCIDENTALLY SPLIT INTO TWO.
 
 <a name="extras"></a>
 ## Things to explore
+- Resources listed at the end of the [main README](../README.md)
 - Run `vimtutor` on the command line
 - vim windows/splits
 - repetition of vim commands using the `.` operator
 - space + s
-
+- `:help` in neovim
+- `:se filetype=X` is quite helpful for scratch buffers
+- Use Neovim on the ETS Linux servers
+- Use

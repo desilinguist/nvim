@@ -47,7 +47,11 @@ Markdown, Bash, and Terraform.
    the path "/Users/nmadnani/anaconda/bin" to the absolute path for your base
    conda environment's `bin` directory.
 
-6. Run `nvim` and wait for all the plugins to be installed.
+6. If you used homebrew to install `lazygit` instead of macports, modify line
+   53 in `lua/user/toggleterm.lua` to set `lazygit_dir` to the correct path for
+   homebrew.
+
+7. Run `nvim` and wait for all the plugins to be installed.
 
 
 ## Troubleshooting

@@ -67,17 +67,19 @@ Let's open Neovim and try to identify all the parts we see on the screen.
 <a name="motions"></a>
 ### Navigation ("motions")
   + by-character movement (h/j/k/l) <--- USED IN MANY CONTEXTS!!!
-  + top/bottom of buffer : gg / G
   + beginning/end of line : 0 / $
   + beginning of the first non-blank character : ^
   + forward/backward to beginning of words (w/b)
   + forward/backward to end of words (e/ge)
-  + jump to absolute line number : <number>G
-  + relative jumps are even more cool: <number>j / <number>k
-  + jump forward/backward to next occurrence of X: fX / Fx
-  + jump forward/backward to character before next occurrence of X: tX / TX
+  + jump to top/bottom of buffer : gg / G
+  + jump to absolute line number : <number> + G
+  + relative jumps are even more cool: <number> + j / <number> + k
+  + go back/forward in jumplist : ctrl + o / ctrl + i (very useful!)
+  + jump forward/backward to next occurrence of X: f + X / F + X
+  + jump forward/backward to character before next occurrence of character X: t + X / T + X
+  + Use semicolon to continue search for X in same direction
   + find <TEXT> : /<TEXT> (better later!)
-  + move to next / previous result : n / N
+  + move to next / previous result : n /  n
   + clear highlights : space + h
 
 <a name="editing"></a>
@@ -192,7 +194,8 @@ ACCIDENTALLY SPLIT INTO TWO.
 - add/delete file: a/d
 - close / open folders : enter
 - open selected file : enter
-- move to buffer on left : shift + h
+- move to buffer on left/right : shift + h / shift + l
+- go back/forward in jumplist : ctrl + o / ctrl + i (very useful for mistyped saves!)
 - close current buffer (without saving!): space + c
 - Telescope plugin makes it even better!
 - show searchable file list : space + f (ctrl + j/k to navigate)
@@ -201,25 +204,24 @@ ACCIDENTALLY SPLIT INTO TWO.
 
 <a name="code"></a>
 ### Code editing & navigation
+- Let's open the code for `filltime` in a new terminal.
 - LSP servers (Language Server Protocol)
-  + Install Pyright for Python (not already installed!)
+  + Install [pyright](https://github.com/microsoft/pyright) for Python (not already installed!)
   + `:LspInstallInfo` to install new language servers (install/update: i/u)
   + `:LspInfo` to see what LSPs are attached to the current buffer.
 - Code formatters and linters
   + `black`, `isort`, `pydocstyle`, `flake8` pre-installed for Python, among others.
-- Let's open the code for `filltime` in a new terminal.
 - Two rulers at different positions as guides but no automatic wrapping!
 - Must activate conda environment before opening for LSP to work properly.
 - Useful keyboard shortcuts
   + Comment : space + / (combine with visual mode!)
-  + go to next/previous function/class : ]m / ]m / ]] / []
+  + go to next/previous function/class : ]m / ]m / ]] / [[ (even works in Markdown!)
   + new text objects for code : function (`f`), class (`c`), argument (`a`)
   + new operator for commenting : `gc`
   + all operators should work with these objects
   + see diagnostic message for current line as a floating window: g + l
   + go to definition of name under cursor: g + d
   + go to references of name under cursor: g + r
-  + go back in jumplist : ctrl + o (very useful!)
   + Keymap prefix for LSP actions : space + l
   + Show LSP symbol navigator : space + l + r
   + Show LSP diagnostics for whole project : space + l + d
@@ -276,4 +278,3 @@ ACCIDENTALLY SPLIT INTO TWO.
 - `:help` in neovim
 - `:se filetype=X` is quite helpful for scratch buffers
 - Use Neovim on the ETS Linux servers
-- Use

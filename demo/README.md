@@ -176,9 +176,9 @@ ACCIDENTALLY SPLIT INTO TWO.
 - Surround plugins gives you new operators!
 - `ys :` add surrounding, `ds :` delete surrounding, `cs :` change surrounding
 - Examples:
-  - SURROUND THIS PHRASE WITH DOUBLE QUOTES
-  - CHANGE `BACKTICKS` WITH SINGLE QUOTES AND DELETE THESE { BRACKETS }.
-  - MAKE NEOVIM A LINK.
+  - SURROUND THIS PHRASE WITH DOUBLE QUOTES (`ys2w"` while cursor on T of THIS)
+  - CHANGE "DOUBLE QUOTES" TO SINGLE QUOTES AND DELETE THESE { BRACKETS }. (`cs"'` while cursor inside the quotes, `ds{` while cursor inside the braces)
+  - MAKE NEOVIM A LINK. (`ysw]` while cursor on N of "NEOVIM" or `ysiw]` while cursor anywhere inside "NEOVIM")
 
 <a name="highlevel"></a>
 ## Higher level operations

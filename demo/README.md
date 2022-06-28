@@ -237,7 +237,7 @@ ACCIDENTALLY SPLIT INTO TWO.
 - Keymap prefix for terminal mode : space + t
 - Open floating terminal : space + t + f(loat)
 - Open vertical terminal : space + t + v(ertical)
-- Open terminal at bottom : ctrl + \ (easier to remember)
+- Open horizontal terminal : space + t + h(horizontal)
 - Open htop : space + t + t (top)
 - Open ncdu : space + t + u (usage)
 

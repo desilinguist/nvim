@@ -254,19 +254,19 @@ ACCIDENTALLY SPLIT INTO TWO.
   + switch to various sections : 1-5
   + switch between tabs in a section : ] or [
   + move up/down in any section : k/j
+  + fetch any branch : f
+  + create new branch : n
   + stage/unstage file : space
   + commit : c (shift + c to use neovim for writing commit message!)
   + discard all changes in file/commit : d
-  + reword message for selected commit: r/shift + r
-  + amend selected commit to include staged files : shift + a
+  + reword message for selected commit: r/R
+  + amend selected commit to include staged files : A
   + pull : p
-  + push : shift + p
-  + fetch any branch : f
-  + create new branch : n
+  + push : P
   + rebase active branch on selected branch : r
 - Useful tips:
   + If you have pre-commit checks, better to use shift + c rather than c to commit.
-  + You can press enter on any  file and then choose specific hunks to commit (v to start selection, k/j to move up/down)
+  + You can press enter on any file and then choose specific hunks to commit (v to start selection, k/j to move up/down)
 
 <a name="extras"></a>
 ## Things to explore

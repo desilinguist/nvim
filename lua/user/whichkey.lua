@@ -88,6 +88,7 @@ local mappings = {
 		"Buffers",
 	},
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+	["C"] = { "<cmd>PickColor<cr>", "Color Picker"},
 	["d"] = { "<cmd>Neogen<cr>", "Docstring" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["f"] = {
@@ -96,6 +97,7 @@ local mappings = {
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	["I"] = { "<cmd>PickIcons<cr>", "Icon Picker"},
 	["M"] = { "<cmd>! open -a 'Marked 2' %:p<cr>", "Markdown Preview" },
 	["n"] = { "<cmd>enew<CR>", "New Buffer" },
 	["o"] = {
@@ -104,6 +106,7 @@ local mappings = {
 	},
 	-- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
+	["S"] = { "<cmd>PickSymbols<cr>", "Symbol Picker"},
 	["w"] = { "<cmd>w!<CR>", "Save" },
 
 	p = {

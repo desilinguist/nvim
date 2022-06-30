@@ -182,6 +182,23 @@ return packer.startup(function(use)
 	-- substitute
 	use("gbprod/substitute.nvim")
 
+	-- color picker
+	use({
+		"ziontee113/color-picker.nvim",
+		config = function()
+			require("color-picker")
+		end,
+	})
+
+    -- icon picker
+    use("stevearc/dressing.nvim")
+    use({
+      "ziontee113/icon-picker.nvim",
+      config = function()
+        require("icon-picker")
+      end,
+    })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

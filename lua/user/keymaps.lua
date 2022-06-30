@@ -98,3 +98,8 @@ keymap("n", "sx", "<cmd>lua require('substitute.exchange').operator()<cr>", { no
 keymap("n", "sxx", "<cmd>lua require('substitute.exchange').line()<cr>", { noremap = true })
 keymap("x", "X", "<cmd>lua require('substitute.exchange').visual()<cr>", { noremap = true })
 keymap("n", "sxc", "<cmd>lua require('substitute.exchange').cancel()<cr>", { noremap = true })
+
+-- color and icon pickers in insert mode
+keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+keymap("i", "<C-i>", "<cmd>PickIconsInsert<cr>", opts)
+keymap("i", "<C-s>", "<cmd>PickSymbolsInsert<cr>", opts)

@@ -149,7 +149,7 @@ return packer.startup(function(use)
 	use("lalitmee/browse.nvim")
 
 	-- plugin for surround operation
-	use("tpope/vim-surround")
+	use("kylechui/nvim-surround")
 
 	-- plugin to show current scope in status line
 	use("SmiteshP/nvim-gps")
@@ -190,14 +190,14 @@ return packer.startup(function(use)
 		end,
 	})
 
-    -- icon picker
-    use("stevearc/dressing.nvim")
-    use({
-      "ziontee113/icon-picker.nvim",
-      config = function()
-        require("icon-picker")
-      end,
-    })
+	-- icon picker
+	use("stevearc/dressing.nvim")
+	use({
+		"ziontee113/icon-picker.nvim",
+		config = function()
+			require("icon-picker")
+		end,
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -199,6 +199,10 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- task runner
+	use("jedrzejboczar/toggletasks.nvim")
+	-- use("EthanJWright/vs-tasks.nvim")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

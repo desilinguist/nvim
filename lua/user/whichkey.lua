@@ -78,7 +78,6 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
-
 local mappings = {
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	["`"] = { "<cmd>Cheatsheet<CR>", "Show cheatsheet" },
@@ -88,7 +87,7 @@ local mappings = {
 		"Buffers",
 	},
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	["C"] = { "<cmd>PickColor<cr>", "Color Picker"},
+	["C"] = { "<cmd>PickColor<cr>", "Color Picker" },
 	["d"] = { "<cmd>Neogen<cr>", "Docstring" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["f"] = {
@@ -97,7 +96,7 @@ local mappings = {
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["I"] = { "<cmd>PickIcons<cr>", "Icon Picker"},
+	["I"] = { "<cmd>PickIcons<cr>", "Icon Picker" },
 	["M"] = { "<cmd>! open -a 'Marked 2' %:p<cr>", "Markdown Preview" },
 	["n"] = { "<cmd>enew<CR>", "New Buffer" },
 	["o"] = {
@@ -106,7 +105,7 @@ local mappings = {
 	},
 	-- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
-	["S"] = { "<cmd>PickSymbols<cr>", "Symbol Picker"},
+	["S"] = { "<cmd>PickSymbols<cr>", "Symbol Picker" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 
 	p = {
@@ -163,7 +162,7 @@ local mappings = {
 			"<cmd>lua vim.diagnostic.goto_prev()<cr>",
 			"Prev Diagnostic",
 		},
-        m = {
+		m = {
 			"<cmd>lua vim.lsp.buf.rename()<cr>",
 			"Rename",
 		},
@@ -198,6 +197,8 @@ local mappings = {
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 		h = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+		r = { "<cmd>lua require('telescope').extensions.toggletasks.spawn(require('telescope.themes').get_dropdown())<CR>", "Tasks" },
+		o = { "<cmd>lua require('telescope').extensions.toggletasks.select(require('telescope.themes').get_dropdown())<CR>", "Task Outputs" },
 	},
 }
 

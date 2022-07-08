@@ -103,3 +103,6 @@ telescope.load_extension("fzf")
 
 -- load the environment variable extension
 telescope.load_extension("env")
+
+-- load the toggletasks extension
+telescope.load_extension('toggletasks')

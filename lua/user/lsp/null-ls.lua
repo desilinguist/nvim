@@ -35,6 +35,9 @@ null_ls.setup({
 		diagnostics.pydocstyle.with({
 			command = linter_path .. "pydocstyle",
 		}),
+		formatting.beautysh.with({
+			command = linter_path .. "beautysh",
+		}),
 		formatting.stylua,
         formatting.prettier,
 	},

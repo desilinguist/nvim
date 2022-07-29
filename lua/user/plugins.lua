@@ -56,8 +56,6 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
-	use("lunarvim/darkplus.nvim")
-	use("sainnhe/sonokai")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -104,7 +102,6 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 
 	-- alpha greeter
-	use("goolord/alpha-nvim")
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 
 	-- whichkey
@@ -202,6 +199,9 @@ return packer.startup(function(use)
 
 	-- task runner
 	use("jedrzejboczar/toggletasks.nvim")
+
+    -- better sorting
+    use("SQVe/sort.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

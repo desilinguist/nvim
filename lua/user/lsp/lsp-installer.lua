@@ -1,5 +1,10 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
+local status_ok1, mason = pcall(require, "mason")
+if not status_ok1 then
+	return
+end
+
+local status_ok2, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not status_ok2 then
 	return
 end
 
@@ -12,14 +17,24 @@ local servers = {
 	"bashls",
 	"jsonls",
 	"yamlls",
-    "tflint",
-    "terraformls",
-    "emmet_ls",
-    "prosemd_lsp",
-    "r_language_server"
+	"tflint",
+	"terraformls",
+	"emmet_ls",
+	"esbonio",
+	"prosemd_lsp",
+	"r_language_server",
 }
 
-lsp_installer.setup()
+mason.setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
+mason_lspconfig.setup()
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
@@ -55,4 +70,3 @@ for _, server in pairs(servers) do
 	end
 	lspconfig[server].setup(opts)
 end
-

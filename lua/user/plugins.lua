@@ -76,7 +76,8 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use("williamboman/mason.nvim") -- simple to use language server installer
+    use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("tamago324/nlsp-settings.nvim") -- Common null-ls settings
 	use("folke/trouble.nvim") -- Nice way to show LSP diagnostics

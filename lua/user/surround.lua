@@ -9,6 +9,9 @@ surround.setup({
 		visual = "S",
 		delete = "ds",
 		change = "cs",
+        normal_line = "yS",
+        normal_cur_line = "ySS",
+        visual_line = "gS",
 	},
 	delimiters = {
 		pairs = {

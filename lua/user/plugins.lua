@@ -203,6 +203,9 @@ return packer.startup(function(use)
     -- better sorting
     use("SQVe/sort.nvim")
 
+    -- better integration with system clipboard
+    use("ojroques/nvim-osc52")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

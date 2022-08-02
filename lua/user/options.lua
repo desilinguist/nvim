@@ -34,6 +34,11 @@ local options = {
 	sidescrolloff = 8, -- horizontal scrolling characters
     laststatus = 3, -- use global status line instead of per buffer
 	guifont = "OperatorMono Nerd Font:h17", -- the font used in graphical neovim applications
+    -- set folding options for ufo
+    foldcolumn = '1',
+    foldlevel = 99,
+    foldlevelstart = 99,
+    foldenable = true,
 }
 
 vim.opt.shortmess:append("c")
@@ -48,3 +53,4 @@ vim.g.markdown_fenced_languages = {"bash=sh", "javascript", "json=javascript", "
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
+

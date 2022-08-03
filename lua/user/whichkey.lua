@@ -3,12 +3,6 @@ if not status_ok then
 	return
 end
 
-local lsp_lines_toggle = function()
-	local new_value = not vim.diagnostic.config().virtual_lines
-	vim.diagnostic.config({ virtual_lines = new_value })
-	return new_value
-end
-
 local setup = {
 	plugins = {
 		marks = false, -- shows a list of your marks on ' and `

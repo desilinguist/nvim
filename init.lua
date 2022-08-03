@@ -1,6 +1,6 @@
 require("user.options")
 require("user.ufo")
-require("user.osc52")
+-- require("user.osc52")
 require("user.notify")
 require("user.keymaps")
 require("user.plugins")

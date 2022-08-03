@@ -3,6 +3,12 @@ if not status_ok then
 	return
 end
 
+local lsp_lines_toggle = function()
+	local new_value = not vim.diagnostic.config().virtual_lines
+	vim.diagnostic.config({ virtual_lines = new_value })
+	return new_value
+end
+
 local setup = {
 	plugins = {
 		marks = false, -- shows a list of your marks on ' and `
@@ -167,7 +173,7 @@ local mappings = {
 			"<cmd>lua vim.lsp.buf.rename()<cr>",
 			"Rename",
 		},
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+		l = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Toggle LSP lines" },
 		q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = {
 			"<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown{ previewer = false })<cr>",
@@ -198,8 +204,14 @@ local mappings = {
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 		h = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-		r = { "<cmd>lua require('telescope').extensions.toggletasks.spawn(require('telescope.themes').get_dropdown())<CR>", "Tasks" },
-		o = { "<cmd>lua require('telescope').extensions.toggletasks.select(require('telescope.themes').get_dropdown())<CR>", "Task Outputs" },
+		r = {
+			"<cmd>lua require('telescope').extensions.toggletasks.spawn(require('telescope.themes').get_dropdown())<CR>",
+			"Tasks",
+		},
+		o = {
+			"<cmd>lua require('telescope').extensions.toggletasks.select(require('telescope.themes').get_dropdown())<CR>",
+			"Task Outputs",
+		},
 	},
 }
 

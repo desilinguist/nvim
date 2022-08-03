@@ -209,6 +209,11 @@ return packer.startup(function(use)
 	-- better folding
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
+	-- better lsp diagnostics
+	use({
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

@@ -188,12 +188,12 @@ return packer.startup(function(use)
 
 	-- icon picker
 	use("stevearc/dressing.nvim")
-	use({
-		"ziontee113/icon-picker.nvim",
-		config = function()
-			require("icon-picker")
-		end,
-	})
+	-- use({
+	-- 	"ziontee113/icon-picker.nvim",
+	-- 	config = function()
+	-- 		require("icon-picker").setup()
+	-- 	end,
+	-- })
 
 	-- task runner
 	use("jedrzejboczar/toggletasks.nvim")

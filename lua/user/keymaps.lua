@@ -91,7 +91,7 @@ keymap("n", "OO", "m`O<ESC>``", opts)
 -- substitute keymaps
 keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>", { noremap = true })
 keymap("n", "ss", "<cmd>lua require('substitute').line()<cr>", { noremap = true })
-keymap("n", "S", "<cmd>lua require('substitute').eol()<cr>", { noremap = true })
+-- keymap("n", "S", "<cmd>lua require('substitute').eol()<cr>", { noremap = true })
 keymap("x", "s", "<cmd>lua require('substitute').visual()<cr>", { noremap = true })
 
 keymap("n", "sx", "<cmd>lua require('substitute.exchange').operator()<cr>", { noremap = true })

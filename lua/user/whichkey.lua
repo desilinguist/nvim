@@ -199,11 +199,11 @@ local mappings = {
 		h = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 		r = {
-			"<cmd>lua require('telescope').extensions.toggletasks.spawn(require('telescope.themes').get_dropdown())<CR>",
+			"<cmd>lua require('telescope').extensions.toggletasks.spawn(require('telescope.themes').get_ivy())<CR>",
 			"Tasks",
 		},
 		o = {
-			"<cmd>lua require('telescope').extensions.toggletasks.select(require('telescope.themes').get_dropdown())<CR>",
+			"<cmd>lua require('telescope').extensions.toggletasks.select(require('telescope.themes').get_ivy())<CR>",
 			"Task Outputs",
 		},
 	},

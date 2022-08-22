@@ -80,7 +80,8 @@ return packer.startup(function(use)
 	use("tamago324/nlsp-settings.nvim") -- Common null-ls settings
 	use("folke/trouble.nvim") -- Nice way to show LSP diagnostics
 	use("ray-x/lsp_signature.nvim") -- Show signature of any function while typing it
-	use("b0o/SchemaStore.nvim") -- lugin for SchemaStore for various JSON schemas
+	use("b0o/SchemaStore.nvim") -- Use SchemaStore for various JSON/YAML schemas
+    use("j-hui/fidget.nvim") -- Show LSP progress, if available
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")

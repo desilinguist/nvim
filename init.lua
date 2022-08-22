@@ -34,4 +34,4 @@ require("user.virtcolumn")
 require("user.browse")
 require("user.surround")
 require("user.sort")
-
+require("user.fidget")

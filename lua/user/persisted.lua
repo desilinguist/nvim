@@ -4,4 +4,3 @@ if not status_ok then
 end
 
 persisted.setup({ autoload = true })
-require("telescope").load_extension("persisted")

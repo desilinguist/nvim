@@ -216,6 +216,9 @@ return packer.startup(function(use)
 		"mizlan/iswap.nvim",
 	})
 
+    -- better highlighting/filtering of todos etc. in comments
+    use("folke/todo-comments.nvim")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

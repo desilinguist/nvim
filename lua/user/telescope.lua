@@ -106,3 +106,6 @@ telescope.load_extension("env")
 
 -- load the toggletasks extension
 telescope.load_extension('toggletasks')
+
+-- load the persisted extension
+telescope.load_extension("persisted")

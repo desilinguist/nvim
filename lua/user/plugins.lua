@@ -213,6 +213,11 @@ return packer.startup(function(use)
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 	})
 
+	-- easy swapping of things
+	use({
+		"mizlan/iswap.nvim",
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

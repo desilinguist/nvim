@@ -188,7 +188,7 @@ local mappings = {
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
-		s = { "<cmd>SearchSession<cr>", "Sessions" },
+		s = { "<cmd>Telescope persisted theme=dropdown<cr>", "Sessions" },
 	},
 
 	t = {

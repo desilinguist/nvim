@@ -119,7 +119,7 @@ return packer.startup(function(use)
 	use("nathom/filetype.nvim")
 
 	-- sessions
-	use("rmagatti/auto-session")
+    use ("olimorris/persisted.nvim")
 
 	-- stabilize
 	use("luukvbaal/stabilize.nvim")
@@ -138,9 +138,6 @@ return packer.startup(function(use)
 
 	-- show colorcolumn but in virtual text
 	use("lukas-reineke/virt-column.nvim")
-
-	-- use a session manager and finder
-	use("rmagatti/session-lens")
 
 	-- plugin for easy browsing
 	use("lalitmee/browse.nvim")

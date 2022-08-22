@@ -71,6 +71,8 @@ local lazygit = Terminal:new({
 		vim.api.nvim_buf_set_keymap(0, "t", "<esc>", "<cmd>close<CR>", { silent = false, noremap = true })
 		if vim.fn.mapcheck("<esc>", "t") ~= "" then
 			vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<esc>")
+			vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<C-j>")
+			vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<C-k>")
 		end
 	end,
 })

@@ -177,6 +177,10 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols(require('telescope.themes').get_dropdown{ previewer = false })<cr>",
 			"Workspace Symbols",
 		},
+        v = {
+            "<cmd>lua require('nvim-toggler').toggle()<cr>",
+            "Invert",
+        },
 	},
 	s = {
 		name = "Search",

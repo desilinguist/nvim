@@ -81,7 +81,7 @@ return packer.startup(function(use)
 	use("folke/trouble.nvim") -- Nice way to show LSP diagnostics
 	use("ray-x/lsp_signature.nvim") -- Show signature of any function while typing it
 	use("b0o/SchemaStore.nvim") -- Use SchemaStore for various JSON/YAML schemas
-    use("j-hui/fidget.nvim") -- Show LSP progress, if available
+	use("j-hui/fidget.nvim") -- Show LSP progress, if available
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -120,7 +120,7 @@ return packer.startup(function(use)
 	use("nathom/filetype.nvim")
 
 	-- sessions
-    use ("olimorris/persisted.nvim")
+	use("olimorris/persisted.nvim")
 
 	-- stabilize
 	use("luukvbaal/stabilize.nvim")
@@ -216,8 +216,11 @@ return packer.startup(function(use)
 		"mizlan/iswap.nvim",
 	})
 
-    -- better highlighting/filtering of todos etc. in comments
-    use("folke/todo-comments.nvim")
+	-- better highlighting/filtering of todos etc. in comments
+	use("folke/todo-comments.nvim")
+
+	-- smart inverter for wordsr
+	use({ "nguyenvukhang/nvim-toggler" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

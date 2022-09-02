@@ -14,11 +14,11 @@ local diagnostics = null_ls.builtins.diagnostics
 local machine = os.getenv("NVIM_MACHINE")
 local linter_path
 if machine == "ets" then
-    linter_path = "/opt/python/linters/bin/"
+	linter_path = "/opt/python/linters/bin/"
 elseif machine == "ec2" then
-    linter_path = "/home/ec2-user/miniconda/bin/"
+	linter_path = "/home/ec2-user/miniconda/bin/"
 else
-    linter_path = "/Users/nmadnani/anaconda/bin/"
+	linter_path = "/Users/nmadnani/anaconda/bin/"
 end
 
 null_ls.setup({
@@ -37,10 +37,14 @@ null_ls.setup({
 		diagnostics.pydocstyle.with({
 			command = linter_path .. "pydocstyle",
 		}),
+        diagnostics.jsonlint,
 		formatting.beautysh.with({
 			command = linter_path .. "beautysh",
 		}),
+		formatting.prettier.with({
+			filetypes = { "html", "javascript", "typescript", "markdown", "css", "scss", "less" },
+		}),
 		formatting.stylua,
-        formatting.prettier,
+		formatting.fixjson,
 	},
 })

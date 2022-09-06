@@ -106,9 +106,8 @@ return packer.startup(function(use)
 	-- alpha greeter
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 
-	-- whichkey (using my fork until the register fix is applied)
-	-- use({"folke/which-key.nvim", lock=true})
-	use({ "desilinguist/which-key.nvim", branch = "fix-register" })
+	-- whichkey
+	use({ "folke/which-key.nvim" })
 
 	-- neogen
 	use("danymat/neogen")

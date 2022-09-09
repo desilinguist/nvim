@@ -134,7 +134,7 @@ return packer.startup(function(use)
 	use("wellle/targets.vim")
 
 	-- remove trailing whitespace and extra empty lines at the end
-	use({ "mcauley-penney/tidy.nvim", branch = "cfg" })
+	use({ "mcauley-penney/tidy.nvim" })
 
 	-- show colorcolumn but in virtual text
 	use("lukas-reineke/virt-column.nvim")
@@ -211,9 +211,7 @@ return packer.startup(function(use)
 	})
 
 	-- easy swapping of things
-	use({
-		"mizlan/iswap.nvim",
-	})
+	use({ "mizlan/iswap.nvim" })
 
 	-- better highlighting/filtering of todos etc. in comments
 	use("folke/todo-comments.nvim")

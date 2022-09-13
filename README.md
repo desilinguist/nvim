@@ -53,6 +53,25 @@ Markdown, Bash, and Terraform.
 
 7. Run `nvim` and wait for all the plugins to be installed.
 
+8. Once all the plugins are installed, run `:Mason` to install the [language
+   servers](https://en.wikipedia.org/wiki/Language_Server_Protocol) you might need. The ones I use are as follows:
+
+    - bash-language-server
+    - css-lsp
+    - emmet-ls
+    - esbonio
+    - html-lsp
+    - json-lsp
+    - lua-language-server
+    - markdownlint
+    - prosemd-lsp
+    - pyright
+    - shellcheck
+    - terraform-ls
+    - tflint
+    - typescript-language-server
+    - yaml-language-server
+
 
 ## Troubleshooting
 

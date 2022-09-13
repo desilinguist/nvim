@@ -16,7 +16,7 @@ Markdown, Bash, and Terraform.
    install Neovim as follows: `sudo port install neovim`.  To use
    [homebrew](https://brew.sh) instead of macports, run `brew install neovim`.
 
-   This will install Neovim v0.7.0 which is the version that this configuration
+   This will install Neovim v0.7.2 which is the version that this configuration
    has been tested to work with. If you install an older or a newer release of
    Neovim, there is no guarantee that this configuration will work.
 
@@ -26,12 +26,12 @@ Markdown, Bash, and Terraform.
 3. Use macports to install additional external packages:
 
    ```text
-   sudo port install htop lazygit ncdu nodejs18 npm7
+   sudo port install htop git lazygit ncdu nodejs18 npm7 ripgrep fd
    ```
 
    If you use homebrew, run
    ```text
-    brew install htop lazygit ncdu node@18
+    brew install htop git lazygit ncdu node@18 ripgrep fd
    ```
 
 4. Clone this repository:
@@ -43,7 +43,7 @@ Markdown, Bash, and Terraform.
    If you already use Neovim, make sure to remove or move your current
    `$HOME/.config/nvim` directory,
 
-5. Modify line 19 in `$HOME/.config/nvim/lua/user/lsp/null-ls.lua` to change
+5. Modify line 21 in `$HOME/.config/nvim/lua/user/lsp/null-ls.lua` to change
    the path "/Users/nmadnani/anaconda/bin" to the absolute path for your base
    conda environment's `bin` directory.
 

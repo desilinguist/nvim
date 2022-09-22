@@ -168,7 +168,7 @@ return packer.startup(function(use)
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- treesitter context
-	-- use("nvim-treesitter/nvim-treesitter-context")
+	use("nvim-treesitter/nvim-treesitter-context")
 
 	-- nvim notify
 	use("rcarriga/nvim-notify")

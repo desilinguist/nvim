@@ -99,3 +99,5 @@ CFA
 MINRES
 varimax
 meth
+OAuth2
+DynamoDB

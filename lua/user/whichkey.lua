@@ -152,7 +152,7 @@ local mappings = {
 			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
 			"Workspace Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {
@@ -177,10 +177,10 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols(require('telescope.themes').get_dropdown{ previewer = false })<cr>",
 			"Workspace Symbols",
 		},
-        v = {
-            "<cmd>lua require('nvim-toggler').toggle()<cr>",
-            "Invert",
-        },
+		v = {
+			"<cmd>lua require('nvim-toggler').toggle()<cr>",
+			"Invert",
+		},
 	},
 	s = {
 		name = "Search",

@@ -42,7 +42,7 @@ null_ls.setup({
 			command = linter_path .. "beautysh",
 		}),
 		formatting.prettier.with({
-			filetypes = { "html", "javascript", "typescript", "markdown", "css", "scss", "less" },
+			filetypes = { "html", "javascript", "typescript", "css", "scss", "less" },
 		}),
 		formatting.stylua,
 		formatting.fixjson,

@@ -146,7 +146,7 @@ return packer.startup(function(use)
 	use("kylechui/nvim-surround")
 
 	-- plugin to show current scope in status line
-	use("SmiteshP/nvim-gps")
+	use("SmiteshP/nvim-navic")
 
 	-- plugin to make j/k movement faster
 	use({

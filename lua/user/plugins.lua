@@ -87,6 +87,15 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "LinArcX/telescope-env.nvim" })
+	use({
+		"princejoogie/dir-telescope.nvim",
+		config = function()
+			require("dir-telescope").setup({
+				hidden = false,
+				respect_gitignore = true,
+			})
+		end,
+	})
 
 	-- Treesitter
 	use({

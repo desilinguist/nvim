@@ -102,6 +102,10 @@ telescope.setup({
 	},
 })
 
+
+-- load the dir extension
+telescope.load_extension("dir")
+
 -- load the fzf-native extension which is really fast
 telescope.load_extension("fzf")
 

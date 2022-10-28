@@ -27,7 +27,7 @@ toggletasks.setup({
 		["null-ls"] = -10,
 	},
 	-- Default values for task configuration options (available options described later)
-	defaults = {
+	toggleterm = {
 		close_on_exit = false,
 		hidden = true,
 	},

@@ -5,6 +5,7 @@ end
 
 persisted.setup({
 	autoload = true,
+    branch_separator = "_",
 	telescope = {
 		before_source = function()
 			-- Close all open buffers

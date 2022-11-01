@@ -231,6 +231,9 @@ return packer.startup(function(use)
 	-- autolist plugin for markdown
 	use({ "gaoDean/autolist.nvim" })
 
+	-- silicon plugin for fancy code screenshots
+	use({ "narutoxy/silicon.lua" })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

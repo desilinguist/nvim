@@ -5,7 +5,7 @@ local options = {
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
 	fileencoding = "utf-8", -- the encoding written to a file
-	hlsearch = true, -- highlight all matches on previous search pattern
+	hlsearch = false, -- do not highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
 	mouse = "a", -- allow the mouse to be used in neovim
 	pumheight = 10, -- pop up menu height
@@ -34,6 +34,7 @@ local options = {
 	sidescrolloff = 8, -- horizontal scrolling characters
     laststatus = 3, -- use global status line instead of per buffer
 	guifont = "OperatorMono Nerd Font:h17", -- the font used in graphical neovim applications
+    guicursor = "", -- use a fat cursor in insert mode too
     -- set folding options for ufo
     foldcolumn = '1',
     foldlevel = 99,
@@ -53,4 +54,3 @@ vim.g.markdown_fenced_languages = {"bash=sh", "javascript", "json=javascript", "
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
-

@@ -15,7 +15,7 @@ modes.setup({
 	line_opacity = 0.2,
 
 	-- Highlight cursor
-	set_cursor = true,
+	set_cursor = false,
 
 	-- Highlight in active window only
 	focus_only = false,

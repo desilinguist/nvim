@@ -23,6 +23,7 @@ local servers = {
 	"esbonio",
 	"prosemd_lsp",
 	"r_language_server",
+    "nimls",
 }
 
 mason.setup({
@@ -68,5 +69,6 @@ for _, server in pairs(servers) do
 		local yaml_opts = require("user.lsp.settings.yamlls")
 		opts = vim.tbl_deep_extend("force", yaml_opts, opts)
 	end
+
 	lspconfig[server].setup(opts)
 end

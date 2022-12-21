@@ -21,6 +21,8 @@ else
 	linter_path = "/Users/nmadnani/anaconda/bin/"
 end
 
+local nim_pretty_path = "/Users/nmadnani/nim-1.6.10/bin/"
+
 null_ls.setup({
 	debug = false,
 	sources = {
@@ -30,6 +32,9 @@ null_ls.setup({
 		}),
 		formatting.isort.with({
 			command = linter_path .. "isort",
+		}),
+		formatting.nimpretty.with({
+			command = nim_pretty_path .. "nimpretty",
 		}),
 		diagnostics.flake8.with({
 			command = linter_path .. "flake8",

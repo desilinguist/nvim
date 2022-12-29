@@ -106,6 +106,7 @@ local mappings = {
 	-- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["S"] = { "<cmd>PickSymbols<cr>", "Symbol Picker" },
+	["u"] = { "<cmd>Telescope undo<cr>", "Undo Tree" },
 	["v"] = { "<cmd>Telescope env<cr>", "Env Vars" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 

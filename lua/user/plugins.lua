@@ -157,6 +157,9 @@ return packer.startup(function(use)
 	-- plugin to show current scope in status line
 	use("SmiteshP/nvim-navic")
 
+    -- undo-tree telescope plugin
+    use("debugloop/telescope-undo.nvim")
+
 	-- plugin to make j/k movement faster
 	use({
 		"PHSix/faster.nvim",

@@ -18,7 +18,7 @@ if machine == "ets" then
 elseif machine == "ec2" then
 	linter_path = "/home/ec2-user/miniconda/bin/"
 else
-	linter_path = "/Users/nmadnani/anaconda/bin/"
+	linter_path = "/Users/nmadnani/anaconda/envs/linters/bin/"
 end
 
 local nim_pretty_path = "/Users/nmadnani/nim-1.6.10/bin/"

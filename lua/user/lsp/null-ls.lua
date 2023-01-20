@@ -28,7 +28,7 @@ null_ls.setup({
 	sources = {
 		formatting.black.with({
 			command = linter_path .. "black",
-			extra_args = { "--fast", "--line-length", "100" },
+			extra_args = { "--line-length", "100" },
 		}),
 		formatting.isort.with({
 			command = linter_path .. "isort",

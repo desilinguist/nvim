@@ -220,9 +220,7 @@ return packer.startup(function(use)
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
 	-- better lsp diagnostics
-	use({
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-	})
+	use({ "ErichDonGubler/lsp_lines.nvim" })
 
 	-- easy swapping of things
 	use({ "mizlan/iswap.nvim" })

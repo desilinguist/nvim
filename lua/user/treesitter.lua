@@ -53,5 +53,5 @@ configs.setup({
 			},
 		},
 	},
-	indent = { enable = true, disable = { "yaml" } },
+	indent = { enable = true, disable = { "yaml", "python "} },
 })

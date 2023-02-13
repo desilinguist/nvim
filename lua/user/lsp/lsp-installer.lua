@@ -9,7 +9,7 @@ if not status_ok2 then
 end
 
 local servers = {
-	"sumneko_lua",
+	"lua_ls",
 	"cssls",
 	"html",
 	"tsserver",
@@ -23,7 +23,7 @@ local servers = {
 	"esbonio",
 	"prosemd_lsp",
 	"r_language_server",
-    "nimls",
+	"nimls",
 }
 
 mason.setup({
@@ -51,7 +51,7 @@ for _, server in pairs(servers) do
 	}
 
 	if server == "sumneko_lua" then
-		local sumneko_opts = require("user.lsp.settings.sumneko_lua")
+		local sumneko_opts = require("user.lsp.settings.lua_ls")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 

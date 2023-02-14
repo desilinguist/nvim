@@ -21,7 +21,7 @@ local servers = {
 	"terraformls",
 	"emmet_ls",
 	"esbonio",
-	"prosemd_lsp",
+	"marksman",
 	"r_language_server",
 	"nimls",
 }

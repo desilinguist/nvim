@@ -8,6 +8,7 @@ local options = {
 	hlsearch = false, -- do not highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
 	mouse = "a", -- allow the mouse to be used in neovim
+    mmp = 8000, -- max mem pattern for JSON files
 	pumheight = 10, -- pop up menu height
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
 	showtabline = 2, -- always show tabs

@@ -77,3 +77,22 @@ vim.api.nvim_create_autocmd({ "User" }, {
     ]])
 	end,
 })
+
+local group = vim.api.nvim_create_augroup("PersistedHooks", {})
+
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = "PersistedTelescopeLoadPre",
+  group = group,
+  callback = function()
+    -- Close and delete all open buffers
+    vim.api.nvim_input("<ESC>:%bd<CR>")
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = "PersistedTelescopeLoadPost",
+  group = group,
+  callback = function(session)
+    print("Loaded session " .. session.data.name)
+  end,
+})

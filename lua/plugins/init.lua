@@ -1,8 +1,7 @@
 return {
     	-- My plugins here
     "lewis6991/impatient.nvim", -- cache everything
-    {
-        "folke/which-key.nvim",
+    { "folke/which-key.nvim",
         event = 'BufReadPost',
     },
 	-- Treesitter
@@ -189,5 +188,8 @@ return {
 
 	-- plugin to support nim
     { "alaviss/nim.nvim", ft="nim" },
+
+    -- smarter yanking and deleting
+    { "tenxsoydev/karen-yank.nvim", config = true }
 
 }

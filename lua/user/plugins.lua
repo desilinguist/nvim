@@ -19,10 +19,15 @@ local plugins = {
         "folke/which-key.nvim",
         event = 'BufReadPost',
     },
+	-- Treesitter
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+    },
     "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
     "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
     "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-    "windwp/nvim-ts-autotag", -- Autocomplete and rename tags
+    { "windwp/nvim-ts-autotag", lazy=true }, -- Autocomplete and rename tags
     "numToStr/Comment.nvim", -- Easily comment stuff
     "kyazdani42/nvim-web-devicons", -- Use fancy icons for various file types
     "kyazdani42/nvim-tree.lua", -- Use a fancy filetree side bar
@@ -32,7 +37,7 @@ local plugins = {
     "akinsho/toggleterm.nvim", -- Open terminals and terminal programs in floating windows
 
 	-- Colorschemes
-    "folke/tokyonight.nvim",
+    { "folke/tokyonight.nvim", lazy=false, priority=1000 },
 
 	-- cmp plugins
     "hrsh7th/nvim-cmp", -- The completion plugin
@@ -74,11 +79,6 @@ local plugins = {
         end,
     },
 
-	-- Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-},
 
 	-- Git
     "lewis6991/gitsigns.nvim",

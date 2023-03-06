@@ -189,7 +189,4 @@ return {
 	-- plugin to support nim
     { "alaviss/nim.nvim", ft="nim" },
 
-    -- smarter yanking and deleting
-    { "tenxsoydev/karen-yank.nvim", config = true }
-
 }

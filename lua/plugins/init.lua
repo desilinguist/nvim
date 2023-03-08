@@ -172,7 +172,7 @@ return {
     { "ErichDonGubler/lsp_lines.nvim", lazy=true },
 
 	-- easy swapping of things
-    { "mizlan/iswap.nvim", lazy=true },
+    { "mizlan/iswap.nvim", lazy=true, cmd="ISwap" },
 
 	-- better highlighting/filtering of todos etc. in comments
     "folke/todo-comments.nvim",

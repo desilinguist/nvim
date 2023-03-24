@@ -189,4 +189,8 @@ return {
 	-- plugin to support nim
     { "alaviss/nim.nvim", ft="nim" },
 
+    -- plugin for typos in files and directory names
+    { "axieax/typo.nvim" },
+
+
 }

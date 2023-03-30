@@ -113,5 +113,9 @@ lualine.setup({
 		lualine_z = {},
 	},
 	tabline = {},
-	extensions = {},
+	extensions = {
+		"trouble",
+		"nvim-tree",
+		"lazy",
+	},
 })

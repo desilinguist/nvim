@@ -192,5 +192,8 @@ return {
     -- plugin for typos in files and directory names
     { "axieax/typo.nvim" },
 
+    -- plugin for generating gitignore files
+    { "wintermute-cell/gitignore.nvim", lazy=true },
+
 
 }

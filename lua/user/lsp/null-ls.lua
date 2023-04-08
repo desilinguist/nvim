@@ -51,5 +51,7 @@ null_ls.setup({
 		}),
 		formatting.stylua,
 		formatting.fixjson,
+        formatting.yamlfmt,
+        formatting.xmlformat,
 	},
 })

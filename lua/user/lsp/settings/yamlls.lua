@@ -1,8 +1,10 @@
 return {
-  yaml = {
-    schemaStore = {
-      enable = true
-    }
-  }
+	settings = {
+		yaml = {
+			keyOrdering = false,
+			schemaStore = {
+				enable = true,
+			},
+		},
+	},
 }
-

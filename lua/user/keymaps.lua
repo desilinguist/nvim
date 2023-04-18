@@ -10,7 +10,6 @@ end
 
 substitute.setup({})
 
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -67,7 +66,7 @@ keymap("v", ">", ">gv", opts)
 
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+-- keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down

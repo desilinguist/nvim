@@ -26,23 +26,17 @@ local nim_pretty_path = "/Users/nmadnani/nim-1.6.10/bin/"
 null_ls.setup({
 	debug = false,
 	sources = {
+		diagnostics.jsonlint,
+		formatting.ruff.with({
+			command = linter_path .. "ruff",
+		}),
 		formatting.black.with({
 			command = linter_path .. "black",
 			extra_args = { "--line-length", "100" },
 		}),
-		formatting.isort.with({
-			command = linter_path .. "isort",
-		}),
 		formatting.nimpretty.with({
 			command = nim_pretty_path .. "nimpretty",
 		}),
-		diagnostics.flake8.with({
-			command = linter_path .. "flake8",
-		}),
-		diagnostics.pydocstyle.with({
-			command = linter_path .. "pydocstyle",
-		}),
-        diagnostics.jsonlint,
 		formatting.beautysh.with({
 			command = linter_path .. "beautysh",
 		}),
@@ -51,7 +45,7 @@ null_ls.setup({
 		}),
 		formatting.stylua,
 		formatting.fixjson,
-        formatting.yamlfmt,
-        formatting.xmlformat,
+		formatting.yamlfmt,
+		formatting.xmlformat,
 	},
 })

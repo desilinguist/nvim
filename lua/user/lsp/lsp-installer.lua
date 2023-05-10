@@ -14,6 +14,7 @@ local servers = {
 	"html",
 	"tsserver",
 	"pyright",
+    -- "pylyzer",
 	"bashls",
 	"jsonls",
 	"yamlls",
@@ -58,6 +59,11 @@ for _, server in pairs(servers) do
 	if server == "pyright" then
 		local pyright_opts = require("user.lsp.settings.pyright")
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	end
+
+	if server == "pylyzer" then
+		local pylyzer_opts = require("user.lsp.settings.pylyzer")
+		opts = vim.tbl_deep_extend("force", pylyzer_opts, opts)
 	end
 
 	if server == "jsonls" then

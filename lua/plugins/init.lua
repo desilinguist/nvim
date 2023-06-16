@@ -79,9 +79,6 @@ return {
 	-- colorizer
     "norcalli/nvim-colorizer.lua",
 
-	-- filetype plugin replacing slow built-in filetype.vim
-    "nathom/filetype.nvim",
-
 	-- sessions
     { "olimorris/persisted.nvim", lazy=true },
 

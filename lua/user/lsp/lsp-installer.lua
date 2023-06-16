@@ -61,10 +61,10 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	end
 
-	if server == "pylyzer" then
-		local pylyzer_opts = require("user.lsp.settings.pylyzer")
-		opts = vim.tbl_deep_extend("force", pylyzer_opts, opts)
-	end
+	-- if server == "pylyzer" then
+	-- 	local pylyzer_opts = require("user.lsp.settings.pylyzer")
+	-- 	opts = vim.tbl_deep_extend("force", pylyzer_opts, opts)
+	-- end
 
 	if server == "jsonls" then
 		local jsonls_opts = require("user.lsp.settings.jsonls")

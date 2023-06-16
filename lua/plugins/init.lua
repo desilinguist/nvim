@@ -48,7 +48,7 @@ return {
     "folke/trouble.nvim", -- Nice way to show LSP diagnostics
     "ray-x/lsp_signature.nvim", -- Show signature of any function while typing it
     "b0o/SchemaStore.nvim", -- Use SchemaStore for various JSON/YAML schemas
-    "j-hui/fidget.nvim", -- Show LSP progress, if available
+    { "j-hui/fidget.nvim", tag = "legacy" }, -- Show LSP progress, if available
 
 	-- Telescope
     "nvim-telescope/telescope.nvim",
@@ -71,7 +71,6 @@ return {
 	-- Indentline
     "lukas-reineke/indent-blankline.nvim",
 
-	-- alpha greeter
     "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
 
 	-- neogen
@@ -172,7 +171,7 @@ return {
     { "ErichDonGubler/lsp_lines.nvim", lazy=true },
 
 	-- easy swapping of things
-    { "mizlan/iswap.nvim", lazy=true, cmd="ISwap" },
+    { "mizlan/iswap.nvim" },
 
 	-- better highlighting/filtering of todos etc. in comments
     "folke/todo-comments.nvim",

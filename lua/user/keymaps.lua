@@ -108,3 +108,6 @@ keymap("n", "sxc", "<cmd>lua require('substitute.exchange').cancel()<cr>", { nor
 keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 keymap("i", "<C-i>", "<cmd>PickIconsInsert<cr>", opts)
 keymap("i", "<C-s>", "<cmd>PickSymbolsInsert<cr>", opts)
+
+-- map Esc in insert mode to :w in normal mode
+keymap("i", "<Esc>", "<Esc>:w<CR>", { noremap = true })

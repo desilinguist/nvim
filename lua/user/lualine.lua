@@ -77,7 +77,11 @@ if not navic_status_ok then
 	return
 end
 
-navic.setup()
+navic.setup({
+	lsp = {
+		auto_attach = true,
+	},
+})
 
 lualine.setup({
 	options = {
@@ -101,7 +105,7 @@ lualine.setup({
 		},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { short_hostname, diff, "fileformat", spaces, "encoding" },
-		lualine_y = { { navic.get_location, cond = navic.is_available } },
+		lualine_y = { "navic", color_correction = nil, navic_opts = nil },
 		lualine_z = {},
 	},
 	inactive_sections = {

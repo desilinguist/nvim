@@ -209,4 +209,14 @@ return {
 		config = true,
 		event = "VeryLazy",
 	},
+
+	-- allow selecting conda environments from within neovim
+	{
+		"linux-cultist/venv-selector.nvim",
+		config = true,
+		event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+		opts = {
+			search = false,
+		},
+	},
 }

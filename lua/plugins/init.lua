@@ -1,11 +1,10 @@
 return {
 	-- My plugins here
-	"lewis6991/impatient.nvim", -- cache everything
+	-- Treesitter
 	{
 		"folke/which-key.nvim",
 		event = "BufReadPost",
 	},
-	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",

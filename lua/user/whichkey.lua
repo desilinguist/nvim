@@ -183,6 +183,15 @@ local mappings = {
 			"Invert",
 		},
 	},
+    r = {
+        name = "Replace",
+        s = { "<CMD>SearchReplaceSingleBufferSelections<CR>", "SearchReplaceSingleBuffer [s]elction list" },
+        o = { "<CMD>SearchReplaceSingleBufferOpen<CR>", "[o]pen" },
+        w = { "<CMD>SearchReplaceSingleBufferCWord<CR>", "[w]ord" },
+        W = { "<CMD>SearchReplaceSingleBufferCWORD<CR>", "[W]ORD" },
+        e = { "<CMD>SearchReplaceSingleBufferCExpr<CR>", "[e]xpr" },
+        f = { "<CMD>SearchReplaceSingleBufferCFile<CR>", "[f]ile" },
+    },
 	s = {
 		name = "Search",
 		b = { "<cmd>lua browsefn()<cr>", "Bookmarks" },

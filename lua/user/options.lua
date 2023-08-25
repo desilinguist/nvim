@@ -7,6 +7,7 @@ local options = {
 	fileencoding = "utf-8", -- the encoding written to a file
 	hlsearch = false, -- do not highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
+    inccommand = "split", -- show the effects of a search / replace in a live preview window
 	mouse = "a", -- allow the mouse to be used in neovim
     mmp = 8000, -- max mem pattern for JSON files
 	pumheight = 10, -- pop up menu height
@@ -34,7 +35,7 @@ local options = {
 	scrolloff = 8, -- number of context lines above and below when scorlling
 	sidescrolloff = 8, -- horizontal scrolling characters
     laststatus = 3, -- use global status line instead of per buffer
-	guifont = "OperatorMono Nerd Font:h17", -- the font used in graphical neovim applications
+	guifont = "Berkeley Mono Variable:h17", -- the font used in graphical neovim applications
     guicursor = "", -- use a fat cursor in insert mode too
     -- set folding options for ufo
     foldcolumn = '1',

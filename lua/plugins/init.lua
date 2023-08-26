@@ -212,22 +212,23 @@ return {
 	-- allow selecting conda environments from within neovim
 	{
 		"linux-cultist/venv-selector.nvim",
-		config = true,
-		event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
 		opts = {
+			anaconda_base_path = "/Users/nmadnani/anaconda",
+			anaconda_envs_path = "/Users/nmadnani/anaconda/envs",
 			search = false,
+            search_workspace = false,
 		},
 	},
 
-    -- better search/replace experience
-    {
-        "roobert/search-replace.nvim",
-        config = function()
-        require("search-replace").setup({
-            -- optionally override defaults
-            default_replace_single_buffer_options = "gcI",
-            default_replace_multi_buffer_options = "egcI",
-        })
-        end,
-    }
+	-- better search/replace experience
+	{
+		"roobert/search-replace.nvim",
+		config = function()
+			require("search-replace").setup({
+				-- optionally override defaults
+				default_replace_single_buffer_options = "gcI",
+				default_replace_multi_buffer_options = "egcI",
+			})
+		end,
+	},
 }

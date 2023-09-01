@@ -35,7 +35,7 @@ local options = {
 	scrolloff = 8, -- number of context lines above and below when scorlling
 	sidescrolloff = 8, -- horizontal scrolling characters
     laststatus = 3, -- use global status line instead of per buffer
-	guifont = "Berkeley Mono Variable:h17", -- the font used in graphical neovim applications
+	guifont = "Berkeley Mono Variable:h16", -- the font used in graphical neovim applications
     guicursor = "", -- use a fat cursor in insert mode too
     -- set folding options for ufo
     foldcolumn = '1',

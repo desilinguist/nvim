@@ -188,7 +188,7 @@ return {
 	{ "axieax/typo.nvim" },
 
 	-- plugin for generating gitignore files
-	{ "wintermute-cell/gitignore.nvim", lazy = true },
+	{ "wintermute-cell/gitignore.nvim"  },
 
 	-- codegpt plugin
 	{
@@ -216,7 +216,7 @@ return {
 			anaconda_base_path = "/Users/nmadnani/anaconda",
 			anaconda_envs_path = "/Users/nmadnani/anaconda/envs",
 			search = false,
-            search_workspace = false,
+			search_workspace = false,
 		},
 	},
 

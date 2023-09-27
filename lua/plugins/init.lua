@@ -188,7 +188,7 @@ return {
 	{ "axieax/typo.nvim" },
 
 	-- plugin for generating gitignore files
-	{ "wintermute-cell/gitignore.nvim"  },
+	{ "wintermute-cell/gitignore.nvim" },
 
 	-- codegpt plugin
 	{
@@ -200,13 +200,6 @@ return {
 		config = function()
 			require("codegpt.config")
 		end,
-	},
-
-	-- automatically close unused buffers after 20 mins
-	{
-		"chrisgrieser/nvim-early-retirement",
-		config = true,
-		event = "VeryLazy",
 	},
 
 	-- allow selecting conda environments from within neovim
@@ -231,4 +224,7 @@ return {
 			})
 		end,
 	},
+
+	-- center buffers for better editing
+	{ "shortcuts/no-neck-pain.nvim", version = "*" },
 }

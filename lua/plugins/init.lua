@@ -68,7 +68,7 @@ return {
 	"lewis6991/gitsigns.nvim",
 
 	-- Indentline
-	"lukas-reineke/indent-blankline.nvim",
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
 	"antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
 

@@ -141,13 +141,13 @@ nvim_tree.setup({
 	},
 	view = {
 		width = 40,
-		hide_root_folder = false,
 		side = "left",
 		number = false,
 		relativenumber = false,
 	},
 	renderer = {
 		highlight_git = true,
+        root_folder_label = true,
 		indent_markers = {
 			enable = false,
 			icons = {

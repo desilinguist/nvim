@@ -70,7 +70,6 @@ return {
 
 	-- Indentline
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-
 	"antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
 
 	-- neogen
@@ -228,4 +227,25 @@ return {
 
 	-- center buffers for better editing
 	{ "shortcuts/no-neck-pain.nvim", version = "*" },
+
+	-- add github copilot integration
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end,
+	},
+
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	},
+
 }

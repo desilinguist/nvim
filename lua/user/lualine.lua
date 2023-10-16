@@ -64,18 +64,18 @@ local get_conda_or_venv = function()
 	local use_conda = (conda_env ~= "" and conda_env ~= "base")
 
 	-- what does the venv plugin say?
-	local venv_path = require("venv-selector").get_active_venv()
-	if venv_path ~= nil then
-		venv_path = venv_path:match(".*/(.+)$")
-	else
-		venv_path = "" -- ensuring it's an empty string if nil
+	local venv = require("venv-selector").get_active_venv()
+    local venv_name = ""
+	if venv then
+        local venv_parts = vim.fn.split(venv, "/")
+        venv_name = venv_parts[#venv_parts]
 	end
 
 	-- show conda environment if defined else whatever the plugin says
 	if use_conda then
 		return conda_env
 	else
-		return venv_path
+		return venv_name
 	end
 end
 

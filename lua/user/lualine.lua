@@ -142,5 +142,6 @@ lualine.setup({
 		"trouble",
 		"nvim-tree",
 		"lazy",
+        "mason",
 	},
 })

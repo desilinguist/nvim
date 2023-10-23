@@ -91,7 +91,7 @@ local mappings = {
 		"<cmd>Telescope commands<cr>",
 		"Find commands",
 	},
-	["d"] = { "<cmd>Neogen<cr>", "Docstring" },
+	-- ["d"] = { "<cmd>Neogen<cr>", "Docstring" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["E"] = { "<cmd>lua require('silicon').visualise_api({visible = true})<cr>", "Export PNG" },
 	["f"] = {
@@ -107,7 +107,7 @@ local mappings = {
 		"<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Old Files",
 	},
-	["p"] = { " <cmd>Lazy<cr>", "Lazy" },
+	["P"] = { " <cmd>Lazy<cr>", "Lazy" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["S"] = { "<cmd>PickSymbols<cr>", "Symbol Picker" },
 	["u"] = { "<cmd>Telescope undo<cr>", "Undo Tree" },

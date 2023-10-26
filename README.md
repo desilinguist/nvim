@@ -5,7 +5,7 @@ This repository contains my configuration files for the
 
 ## Introduction
 
-The configuration is based primarily on my personal preferences and focused
+The configuration is primarily based on my personal preferences and focuses
 mainly on the programming languages and tools that I use daily: Python,
 Markdown, Bash, and Terraform.
 

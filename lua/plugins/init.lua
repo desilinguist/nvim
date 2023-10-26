@@ -248,4 +248,6 @@ return {
 		end,
 	},
 
+    -- add gen.nvim for local LLM integration
+    { "David-Kunz/gen.nvim" }
 }

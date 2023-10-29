@@ -14,5 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 -- add actual plugins to ~/.config/nvim/lua/plugins/init.lua
-local opts = {}
+local opts = {
+    concurrency = 1,
+}
 require("lazy").setup("plugins", opts)

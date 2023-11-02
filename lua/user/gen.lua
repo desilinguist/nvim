@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 -- customize the model
-gen.model = "openhermes2-mistral"
+gen.model = "zephyr"
 
 -- add keymaps
 

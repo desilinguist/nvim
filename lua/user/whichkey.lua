@@ -100,7 +100,6 @@ local mappings = {
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["I"] = { "<cmd>PickIcons<cr>", "Icon Picker" },
 	["M"] = { "<cmd>! open -a 'Marked 2' %:p<cr>", "Markdown Preview" },
 	["n"] = { "<cmd>enew<CR>", "New Buffer" },
 	["o"] = {

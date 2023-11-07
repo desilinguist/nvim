@@ -7,6 +7,5 @@ end
 gen.model = "zephyr"
 
 -- add keymaps
-
-
--- add new prompts here
+vim.keymap.set("n", "<leader>I", ":Gen<CR>", { silent = true })
+vim.keymap.set("v", "<leader>I", ":Gen<CR>", { silent = true })

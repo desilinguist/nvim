@@ -83,7 +83,7 @@ local mappings = {
 	["`"] = { "<cmd>Cheatsheet<CR>", "Show cheatsheet" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		"<cmd>lua require('telescope').extensions.hbac.buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
 	},
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },

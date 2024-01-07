@@ -251,8 +251,16 @@ return {
     -- add gen.nvim for local LLM integration
     { "David-Kunz/gen.nvim" },
 
+    -- heuristic buffer auto close
     {
         'axkirillov/hbac.nvim',
         config = true,
+    },
+
+    -- add bigfile.nvim to make editing of large files much faster
+    -- by disabling certain features
+    {
+        "LunarVim/bigfile.nvim"
     }
+
 }

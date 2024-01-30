@@ -123,3 +123,6 @@ telescope.load_extension("undo")
 
 -- load the hbac extension
 telescope.load_extension('hbac')
+
+-- load the live grep args extension
+telescope.load_extension("live_grep_args")

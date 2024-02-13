@@ -49,7 +49,7 @@ return {
 	"folke/trouble.nvim", -- Nice way to show LSP diagnostics
 	"ray-x/lsp_signature.nvim", -- Show signature of any function while typing it
 	"b0o/SchemaStore.nvim", -- Use SchemaStore for various JSON/YAML schemas
-	{ "j-hui/fidget.nvim", tag = "legacy" }, -- Show LSP progress, if available
+	{ "j-hui/fidget.nvim" }, -- Show LSP progress, if available
 
 	-- Telescope
 	"nvim-telescope/telescope.nvim",

@@ -36,7 +36,7 @@ local kind_icons = {
   Value = ' ',
   Enum = ' ',
   Keyword = ' ',
-  Snippet = ' ',
+  Snippet = "",
   Color = ' ',
   File = ' ',
   Reference = ' ',
@@ -47,7 +47,7 @@ local kind_icons = {
   Event = ' ',
   Operator = ' ',
   TypeParameter = ' ',
-  Copilot = ""
+  Copilot = ''
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 

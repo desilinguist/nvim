@@ -6,7 +6,7 @@ end
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-local diagnostics = null_ls.builtins.diagnostics
+-- local diagnostics = null_ls.builtins.diagnostics
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
 -- local code_actions = null_ls.builtins.code_actions
 
@@ -26,10 +26,6 @@ local nim_pretty_path = "/Users/nmadnani/nim-1.6.10/bin/"
 null_ls.setup({
 	debug = false,
 	sources = {
-		diagnostics.jsonlint,
-		formatting.ruff.with({
-			command = linter_path .. "ruff",
-		}),
 		formatting.black.with({
 			command = linter_path .. "black",
 			extra_args = { "--line-length", "100" },
@@ -37,15 +33,10 @@ null_ls.setup({
 		formatting.nimpretty.with({
 			command = nim_pretty_path .. "nimpretty",
 		}),
-		formatting.beautysh.with({
-			command = linter_path .. "beautysh",
-		}),
 		formatting.prettier.with({
 			filetypes = { "html", "javascript", "typescript", "css", "scss", "less" },
 		}),
 		formatting.stylua,
-		formatting.fixjson,
 		formatting.yamlfmt,
-		formatting.xmlformat,
 	},
 })

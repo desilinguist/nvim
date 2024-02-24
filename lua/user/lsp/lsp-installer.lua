@@ -9,22 +9,23 @@ if not status_ok2 then
 end
 
 local servers = {
-	"lua_ls",
-	"cssls",
-	"html",
-	"tsserver",
-	"pyright",
-    -- "pylyzer",
 	"bashls",
-	"jsonls",
-	"yamlls",
-	"tflint",
-	"terraformls",
+	"cssls",
 	"emmet_ls",
 	"esbonio",
+	"html",
+	"jsonls",
+    "lemminx",
+	"lua_ls",
 	"marksman",
-	"r_language_server",
 	"nimls",
+	"pyright",
+	"r_language_server",
+    "ruff_lsp",
+	"terraformls",
+	"tflint",
+	"tsserver",
+	"yamlls",
 }
 
 mason.setup({
@@ -60,11 +61,6 @@ for _, server in pairs(servers) do
 		local pyright_opts = require("user.lsp.settings.pyright")
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	end
-
-	-- if server == "pylyzer" then
-	-- 	local pylyzer_opts = require("user.lsp.settings.pylyzer")
-	-- 	opts = vim.tbl_deep_extend("force", pylyzer_opts, opts)
-	-- end
 
 	if server == "jsonls" then
 		local jsonls_opts = require("user.lsp.settings.jsonls")

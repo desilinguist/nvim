@@ -83,9 +83,16 @@ local function lsp_keymaps(bufnr)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 end
 
+
+-- attach navic to all clients except the ones below
+local excluded_clients = {
+	ruff_lsp = true,
+	tflint = true,
+}
+
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
-	if client.name ~= "ruff_lsp" then
+	if not excluded_clients[client.name] then
 		attach_navic(client, bufnr)
 	end
 end

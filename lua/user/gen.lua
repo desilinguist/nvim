@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 -- customize the model
-gen.model = "zephyr"
+gen.model = "mistral"
 
 -- add keymaps
 vim.keymap.set("n", "<leader>I", ":Gen<CR>", { silent = true })

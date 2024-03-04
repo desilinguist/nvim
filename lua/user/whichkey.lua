@@ -102,6 +102,10 @@ local mappings = {
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["M"] = { "<cmd>! open -a 'Marked 2' %:p<cr>", "Markdown Preview" },
 	["n"] = { "<cmd>enew<CR>", "New Buffer" },
+	["N"] = {
+		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, cwd = vim.fn.stdpath 'config', prompt_title='Find Config File'})<cr>",
+		"Find Config File",
+	},
 	["o"] = {
 		"<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Old Files",
@@ -115,7 +119,7 @@ local mappings = {
 	g = {
 		name = "Git",
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-        i = { "<cmd>Gitignore<cr>", "Generate gitignore" },
+		i = { "<cmd>Gitignore<cr>", "Generate gitignore" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -138,7 +142,7 @@ local mappings = {
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-        c = { "<cmd>:VenvSelect<cr>", "Conda Envs"},
+		c = { "<cmd>:VenvSelect<cr>", "Conda Envs" },
 		d = {
 			"<cmd>Trouble<cr>",
 			"Document Diagnostics",
@@ -182,15 +186,15 @@ local mappings = {
 			"Invert",
 		},
 	},
-    r = {
-        name = "Replace",
-        s = { "<CMD>SearchReplaceSingleBufferSelections<CR>", "SearchReplaceSingleBuffer [s]elction list" },
-        o = { "<CMD>SearchReplaceSingleBufferOpen<CR>", "[o]pen" },
-        w = { "<CMD>SearchReplaceSingleBufferCWord<CR>", "[w]ord" },
-        W = { "<CMD>SearchReplaceSingleBufferCWORD<CR>", "[W]ORD" },
-        e = { "<CMD>SearchReplaceSingleBufferCExpr<CR>", "[e]xpr" },
-        f = { "<CMD>SearchReplaceSingleBufferCFile<CR>", "[f]ile" },
-    },
+	r = {
+		name = "Replace",
+		s = { "<CMD>SearchReplaceSingleBufferSelections<CR>", "SearchReplaceSingleBuffer [s]elction list" },
+		o = { "<CMD>SearchReplaceSingleBufferOpen<CR>", "[o]pen" },
+		w = { "<CMD>SearchReplaceSingleBufferCWord<CR>", "[w]ord" },
+		W = { "<CMD>SearchReplaceSingleBufferCWORD<CR>", "[W]ORD" },
+		e = { "<CMD>SearchReplaceSingleBufferCExpr<CR>", "[e]xpr" },
+		f = { "<CMD>SearchReplaceSingleBufferCFile<CR>", "[f]ile" },
+	},
 	s = {
 		name = "Search",
 		b = { "<cmd>lua browsefn()<cr>", "Bookmarks" },

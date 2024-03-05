@@ -88,6 +88,7 @@ end
 local excluded_clients = {
 	ruff_lsp = true,
 	tflint = true,
+    emmet_ls = true,
 }
 
 M.on_attach = function(client, bufnr)

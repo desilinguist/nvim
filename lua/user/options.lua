@@ -53,6 +53,11 @@ end
 -- set markdown fenced languages
 vim.g.markdown_fenced_languages = {"bash=sh", "javascript", "json=javascript", "python", "html"}
 
+-- set leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work

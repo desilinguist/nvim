@@ -1,0 +1,33 @@
+# Markdown
+
+# Includes octopress (http://octopress.org/) snippets
+
+# The suffix `c` stands for "Clipboard".
+
+# The suffix `c` stands for "Clipboard".
+
+# LINKS
+snippet [
+	[${1:text}](https://${2:address})
+
+## url from clipboard
+snippet [c
+	[${1:link}](${2:`@+`})
+
+# TODO
+snippet xx
+	- [ ] ${1:todo}
+
+# IMAGES
+snippet ![
+	![${1:alttext}](${2:/images/image.jpg})
+
+snippet ![c
+	![${1:alt}](${2:`@+`})
+
+# TABLE
+snippet tb
+	|  ${0:factors}      |    ${1:a}       |  ${2:b}   	|
+	| ------------- |-------------  | ------- |
+	|    ${3:f1}    |    Y          | N       |
+	|    ${4:f2}    |    Y          | N       |

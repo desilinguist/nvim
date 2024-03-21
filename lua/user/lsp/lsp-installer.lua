@@ -22,6 +22,7 @@ local servers = {
 	"pyright",
 	"r_language_server",
     "ruff_lsp",
+    "taplo",
 	"terraformls",
 	"tflint",
 	"tsserver",

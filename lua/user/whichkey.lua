@@ -93,7 +93,7 @@ local mappings = {
 	},
 	-- ["d"] = { "<cmd>Neogen<cr>", "Docstring" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["E"] = { "<cmd>lua require('silicon').visualise_api({visible = true})<cr>", "Export PNG" },
+	["E"] = { "<cmd>Silicon<cr>", "Export PNG" },
 	["f"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Find files",

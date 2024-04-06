@@ -180,7 +180,10 @@ return {
 	{ "gaoDean/autolist.nvim", lazy = true },
 
 	-- silicon plugin for fancy code screenshots
-	{ "desilinguist/silicon.lua", lazy = true },
+	{
+		"krivahtoo/silicon.nvim",
+		build = "./install.sh build",
+	},
 
 	-- plugin to support nim
 	{ "alaviss/nim.nvim", ft = "nim" },

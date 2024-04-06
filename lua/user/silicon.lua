@@ -4,6 +4,17 @@ if not status_ok then
 end
 
 silicon.setup({
-    font = "FiraCode Nerd Font Mono",
-    shadowBlurRadius = 30,
+	font = "FiraCode Nerd Font Mono",
+	background = "#87f",
+	theme = "Monokai Extended",
+	line_number = true,
+	pad_vert = 80,
+	pad_horiz = 50,
+	output = {
+		clipboard = false,
+		path = "/Users/nmadnani/Desktop",
+	},
+	window_title = function()
+		return vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr()), ":~:.")
+	end,
 })

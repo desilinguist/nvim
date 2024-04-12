@@ -15,6 +15,6 @@ vim.g.mapleader = " "
 
 -- add actual plugins to ~/.config/nvim/lua/plugins/init.lua
 local opts = {
-    concurrency = 1,
+    concurrency = 4,
 }
 require("lazy").setup("plugins", opts)

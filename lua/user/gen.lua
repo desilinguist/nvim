@@ -5,7 +5,7 @@ end
 
 -- customize the model
 -- gen.model = "mistral"
-gen.model = "llama3"
+gen.model = "phi3"
 
 -- add keymaps
 vim.keymap.set("n", "<leader>I", ":Gen<CR>", { silent = true })

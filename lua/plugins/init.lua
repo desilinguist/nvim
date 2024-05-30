@@ -46,7 +46,6 @@ return {
 	-- "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
 	"nvimtools/none-ls.nvim", -- for formatters and linters
 	"tamago324/nlsp-settings.nvim", -- Common null-ls settings
-	"folke/trouble.nvim", -- Nice way to show LSP diagnostics
 	"ray-x/lsp_signature.nvim", -- Show signature of any function while typing it
 	"b0o/SchemaStore.nvim", -- Use SchemaStore for various JSON/YAML schemas
 	{ "j-hui/fidget.nvim" }, -- Show LSP progress, if available
@@ -265,5 +264,10 @@ return {
 	-- by disabling certain features
 	{
 		"LunarVim/bigfile.nvim",
+	},
+
+	{
+		"folke/trouble.nvim",
+		opts = {}, -- for default options, refer to the configuration section for custom setup.
 	},
 }

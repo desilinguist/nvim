@@ -144,7 +144,7 @@ local mappings = {
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		c = { "<cmd>:VenvSelect<cr>", "Conda Envs" },
 		d = {
-			"<cmd>Trouble<cr>",
+            "<cmd>Trouble diagnostics toggle<cr>",
 			"Document Diagnostics",
 		},
 		w = {

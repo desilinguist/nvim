@@ -214,6 +214,7 @@ return {
 			search = false,
 			search_workspace = false,
 		},
+        branch = "regexp",
 	},
 
 	-- better search/replace experience

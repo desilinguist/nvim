@@ -22,7 +22,7 @@ return {
 	"akinsho/toggleterm.nvim", -- Open terminals and terminal programs in floating windows
 
 	-- Colorschemes
-	{ "folke/tokyonight.nvim", lazy = false, priority = 1000 },
+	{ "folke/tokyonight.nvim", lazy = false, priority = 1000, commit = "30d7be361a7fbf187a881f17e574e9213d5108ea" },
 
 	-- cmp plugins
 	"hrsh7th/nvim-cmp", -- The completion plugin
@@ -214,7 +214,7 @@ return {
 			search = false,
 			search_workspace = false,
 		},
-        branch = "regexp",
+		branch = "regexp",
 	},
 
 	-- better search/replace experience

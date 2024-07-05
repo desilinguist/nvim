@@ -22,7 +22,21 @@ return {
 	"akinsho/toggleterm.nvim", -- Open terminals and terminal programs in floating windows
 
 	-- Colorschemes
-	{ "folke/tokyonight.nvim", lazy = false, priority = 1000, commit = "30d7be361a7fbf187a881f17e574e9213d5108ea" },
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			style = "night",
+			styles = {
+				functions = { italic = true },
+			},
+			on_colors = function(colors)
+				colors.hint = colors.orange
+				colors.error = "#ff0000"
+			end,
+		},
+	},
 
 	-- cmp plugins
 	"hrsh7th/nvim-cmp", -- The completion plugin

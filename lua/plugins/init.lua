@@ -192,11 +192,12 @@ return {
 	-- autolist plugin for markdown
 	{ "gaoDean/autolist.nvim", lazy = true },
 
-	-- silicon plugin for fancy code screenshots
-	{
-		"krivahtoo/silicon.nvim",
-		build = "./install.sh build",
-	},
+	-- plugin for fancy code screenshots
+	-- {
+	-- 	"krivahtoo/silicon.nvim",
+	-- 	build = "./install.sh build",
+	-- },
+    { "mistricky/codesnap.nvim", build = "make build_generator" },
 
 	-- plugin to support nim
 	{ "alaviss/nim.nvim", ft = "nim" },

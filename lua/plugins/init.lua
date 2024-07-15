@@ -4,6 +4,7 @@ return {
 	{
 		"folke/which-key.nvim",
 		event = "BufReadPost",
+        tag = "v2.1.0",
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",

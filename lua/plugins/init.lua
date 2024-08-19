@@ -4,7 +4,7 @@ return {
 	{
 		"folke/which-key.nvim",
 		event = "BufReadPost",
-        tag = "v2.1.0",
+		tag = "v2.1.0",
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -198,7 +198,7 @@ return {
 	-- 	"krivahtoo/silicon.nvim",
 	-- 	build = "./install.sh build",
 	-- },
-    { "mistricky/codesnap.nvim", build = "make build_generator" },
+	{ "mistricky/codesnap.nvim", build = "make build_generator" },
 
 	-- plugin to support nim
 	{ "alaviss/nim.nvim", ft = "nim" },
@@ -286,5 +286,13 @@ return {
 	{
 		"folke/trouble.nvim",
 		opts = {}, -- for default options, refer to the configuration section for custom setup.
+	},
+
+	{
+		"OXY2DEV/helpview.nvim",
+		lazy = false, -- Recommended
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 }

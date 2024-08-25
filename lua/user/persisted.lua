@@ -5,5 +5,9 @@ end
 
 persisted.setup({
 	autoload = true,
-    branch_separator = "_",
+	autosave = true,
+	branch_separator = "_",
+	before_save = function()
+		vim.cmd("NvimTreeClose")
+	end,
 })

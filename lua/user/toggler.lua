@@ -3,4 +3,6 @@ if not status_ok then
 	return
 end
 
-toggler.setup()
+toggler.setup({
+    remove_default_keybinds = true,
+})

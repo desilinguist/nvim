@@ -1,11 +1,103 @@
 return {
 	-- My plugins here
-	-- Treesitter
+    -- which key
 	{
 		"folke/which-key.nvim",
-		event = "BufReadPost",
-		tag = "v2.1.0",
+        opts = {
+            preset = "classic",
+        },
+        config = function()
+            require("which-key").add({
+                -- Leader key bindings
+                { "<leader>/", function() require("Comment.api").toggle.linewise.current() end, desc = "Comment" },
+                { "<leader>`", "<cmd>Cheatsheet<CR>", desc = "Show cheatsheet" },
+                { "<leader>b", function() require('telescope').extensions.hbac.buffers(require('telescope.themes').get_dropdown{previewer = false}) end, desc = "Buffers" },
+                { "<leader>c", "<cmd>Bdelete!<CR>", desc = "Close Buffer" },
+                { "<leader>C", "<cmd>Telescope commands<cr>", desc = "Find commands" },
+                { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer" },
+                { "<leader>E", "<cmd>Silicon<cr>", desc = "Export PNG" },
+                { "<leader>f", function() require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false}) end, desc = "Find files" },
+                { "<leader>F", "<cmd>Telescope live_grep_args theme=ivy<cr>", desc = "Find Text" },
+                { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
+                { "<leader>M", "<cmd>! open -a 'Marked 2' %:p<cr>", desc = "Markdown Preview" },
+                { "<leader>n", "<cmd>enew<CR>", desc = "New Buffer" },
+                { "<leader>N", function() require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, cwd = vim.fn.stdpath 'config', prompt_title='Find Config File'}) end, desc = "Find Config File" },
+                { "<leader>o", function() require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown{previewer = false}) end, desc = "Old Files" },
+                { "<leader>P", "<cmd>Lazy<cr>", desc = "Lazy" },
+                { "<leader>q", "<cmd>q!<CR>", desc = "Quit" },
+                { "<leader>u", "<cmd>Telescope undo<cr>", desc = "Undo Tree" },
+                { "<leader>v", "<cmd>Telescope env<cr>", desc = "Env Vars" },
+                { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
+
+                -- Git bindings
+                { "<leader>g", group = "Git" },
+                { "<leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit" },
+                { "<leader>gi", "<cmd>Gitignore<cr>", desc = "Generate gitignore" },
+                { "<leader>gj", function() require('gitsigns').next_hunk() end, desc = "Next Hunk" },
+                { "<leader>gk", function() require('gitsigns').prev_hunk() end, desc = "Prev Hunk" },
+                { "<leader>gl", function() require('gitsigns').blame_line() end, desc = "Blame" },
+                { "<leader>gp", function() require('gitsigns').preview_hunk() end, desc = "Preview Hunk" },
+                { "<leader>gr", function() require('gitsigns').reset_hunk() end, desc = "Reset Hunk" },
+                { "<leader>gR", function() require('gitsigns').reset_buffer() end, desc = "Reset Buffer" },
+                { "<leader>gs", function() require('gitsigns').stage_hunk() end, desc = "Stage Hunk" },
+                { "<leader>gu", function() require('gitsigns').undo_stage_hunk() end, desc = "Undo Stage Hunk" },
+                { "<leader>go", "<cmd>Telescope git_status<cr>", desc = "Open changed file" },
+                { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+                { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit" },
+                { "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
+
+                -- LSP bindings
+                { "<leader>l", group = "LSP" },
+                { "<leader>la", function() vim.lsp.buf.code_action() end, desc = "Code Action" },
+                { "<leader>lc", "<cmd>:VenvSelect<cr>", desc = "Conda Envs" },
+                { "<leader>ld", "<cmd>Trouble diagnostics toggle<cr>", desc = "Document Diagnostics" },
+                { "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
+                { "<leader>lf", function() vim.lsp.buf.format({ timeout_ms = 100000 }) end, desc = "Format" },
+                { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
+                { "<leader>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info" },
+                { "<leader>lj", function() vim.diagnostic.goto_next() end, desc = "Next Diagnostic" },
+                { "<leader>lk", function() vim.diagnostic.goto_prev() end, desc = "Prev Diagnostic" },
+                { "<leader>lm", function() vim.lsp.buf.rename() end, desc = "Rename" },
+                { "<leader>ll", function() require('lsp_lines').toggle() end, desc = "Toggle LSP lines" },
+                { "<leader>lq", function() vim.diagnostic.set_loclist() end, desc = "Quickfix" },
+                { "<leader>lr", function() require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown{ previewer = false }) end, desc = "Document Symbols" },
+                { "<leader>lR", function() require('telescope.builtin').lsp_dynamic_workspace_symbols(require('telescope.themes').get_dropdown{ previewer = false }) end, desc = "Workspace Symbols" },
+                { "<leader>lv", function() require('nvim-toggler').toggle() end, desc = "Invert" },
+
+                -- Replace bindings
+                { "<leader>r", group = "Replace" },
+                { "<leader>rs", "<CMD>SearchReplaceSingleBufferSelections<CR>", desc = "SearchReplaceSingleBuffer [s]elction list" },
+                { "<leader>ro", "<CMD>SearchReplaceSingleBufferOpen<CR>", desc = "[o]pen" },
+                { "<leader>rw", "<CMD>SearchReplaceSingleBufferCWord<CR>", desc = "[w]ord" },
+                { "<leader>rW", "<CMD>SearchReplaceSingleBufferCWORD<CR>", desc = "[W]ORD" },
+                { "<leader>re", "<CMD>SearchReplaceSingleBufferCExpr<CR>", desc = "[e]xpr" },
+                { "<leader>rf", "<CMD>SearchReplaceSingleBufferCFile<CR>", desc = "[f]ile" },
+
+                -- Search bindings
+                { "<leader>s", group = "Search" },
+                { "<leader>sb", function() browsefn() end, desc = "Bookmarks" },
+                { "<leader>sc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
+                { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
+                { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+                { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
+                { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "Registers" },
+                { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
+                { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+                { "<leader>ss", "<cmd>Telescope persisted theme=dropdown<cr>", desc = "Sessions" },
+
+                -- Terminal bindings
+                { "<leader>t", group = "Terminal" },
+                { "<leader>tu", function() _NCDU_TOGGLE() end, desc = "NCDU" },
+                { "<leader>tt", function() _HTOP_TOGGLE() end, desc = "Htop" },
+                { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float" },
+                { "<leader>th", "<cmd>ToggleTerm size=20 direction=horizontal<cr>", desc = "Horizontal" },
+                { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
+                { "<leader>tr", function() require('telescope').extensions.toggletasks.spawn(require('telescope.themes').get_ivy()) end, desc = "Tasks" },
+                { "<leader>to", function() require('telescope').extensions.toggletasks.select(require('telescope.themes').get_ivy()) end, desc = "Task Outputs" },
+            })
+        end,
 	},
+	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",

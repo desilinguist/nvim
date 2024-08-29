@@ -354,13 +354,6 @@ return {
 				-- Search bindings
 				{ "<leader>s", group = "Search" },
 				{
-					"<leader>sb",
-					function()
-						browsefn()
-					end,
-					desc = "Bookmarks",
-				},
-				{
 					"<leader>sc",
 					"<cmd>Telescope colorscheme<cr>",
 					desc = "Colorscheme",
@@ -453,12 +446,128 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = {
+					"awk",
+					"bash",
+					"bibtex",
+					"c",
+					"c_sharp",
+					"clojure",
+					"cmake",
+					"comment",
+					"commonlisp",
+					"cpp",
+					"css",
+					"csv",
+					"diff",
+					"disassembly",
+					"dockerfile",
+					"dot",
+					"doxygen",
+					"dtd",
+					"fish",
+					"fortran",
+					"git_config",
+					"git_rebase",
+					"gitattributes",
+					"gitcommit",
+					"gitignore",
+					"gnuplot",
+					"go",
+					"gpg",
+					"haskell",
+					"hcl",
+					"html",
+					"http",
+					"ini",
+					"java",
+					"javascript",
+					"jq",
+					"jsdoc",
+					"json",
+					"json5",
+					"jsonc",
+					"jsonnet",
+					"julia",
+					"kotlin",
+					"latex",
+					"llvm",
+					"lua",
+					"luadoc",
+					"make",
+					"markdown",
+					"markdown_inline",
+					"matlab",
+					"mermaid",
+					"nim",
+					"nim_format_string",
+					"nix",
+					"objc",
+					"objdump",
+					"pascal",
+					"passwd",
+					"pem",
+					"perl",
+					"php",
+					"php_only",
+					"phpdoc",
+					"printf",
+					"properties",
+					"pymanifest",
+					"python",
+					"r",
+					"readline",
+					"regex",
+					"requirements",
+					"rst",
+					"ruby",
+					"rust",
+					"scss",
+					"sql",
+					"ssh_config",
+					"tcl",
+					"terraform",
+					"tmux",
+					"todotxt",
+					"toml",
+					"tsv",
+					"typescript",
+					"vim",
+					"vimdoc",
+					"xml",
+					"yaml",
+					"zig",
+				},
+				sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+				auto_install = true,
+				ignore_install = { "" }, -- List of parsers to ignore installing
+				autopairs = {
+					enable = true,
+				},
+				autotag = {
+					enable = true,
+				},
+				highlight = {
+					enable = true, -- false will disable the whole extension
+					disable = { "" }, -- list of language that will be disabled
+					additional_vim_regex_highlighting = true,
+				},
+				indent = { enable = true, disable = { "yaml" } },
+			})
+		end,
 	},
 	"nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
 	"nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
 	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
 	{ "windwp/nvim-ts-autotag", lazy = true }, -- Autocomplete and rename tags
-	"numToStr/Comment.nvim", -- Easily comment stuff
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	}, -- Easily comment stuff
 	"kyazdani42/nvim-web-devicons", -- Use fancy icons for various file types
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -561,7 +670,7 @@ return {
 	"tamago324/nlsp-settings.nvim", -- Common null-ls settings
 	"ray-x/lsp_signature.nvim", -- Show signature of any function while typing it
 	"b0o/SchemaStore.nvim", -- Use SchemaStore for various JSON/YAML schemas
-	{ "j-hui/fidget.nvim" }, -- Show LSP progress, if available
+	{ "j-hui/fidget.nvim", config = true }, -- Show LSP progress, if available
 
 	-- Telescope
 	"nvim-telescope/telescope.nvim",
@@ -579,44 +688,123 @@ return {
 	{ "nvim-telescope/telescope-live-grep-args.nvim" },
 
 	-- Git
-	"lewis6991/gitsigns.nvim",
+	{ "lewis6991/gitsigns.nvim", config = true },
 
 	-- Indentline
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	"antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
 
 	-- neogen
-	{ "danymat/neogen", lazy = true },
+	{
+		"danymat/neogen",
+		config = function()
+			require("neogen").setup({
+				enabled = true,
+				snippet_engine = "luasnip",
+				languages = {
+					python = {
+						template = {
+							annotation_convention = "numpydoc",
+						},
+					},
+				},
+			})
+		end,
+	},
 
 	-- colorizer
-	"norcalli/nvim-colorizer.lua",
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 
 	-- sessions
-	{ "olimorris/persisted.nvim", lazy = true },
+	{
+		"olimorris/persisted.nvim",
+		lazy = true,
+		config = function()
+			require("persisted").setup({
+				autoload = true,
+				autosave = true,
+				branch_separator = "_",
+				before_save = function()
+					vim.cmd("NvimTreeClose")
+				end,
+			})
+		end,
+	},
 
 	-- stabilize
-	"luukvbaal/stabilize.nvim",
+	{
+		"luukvbaal/stabilize.nvim",
+		config = function()
+			require("stabilize").setup()
+		end,
+	},
 
 	-- cheatsheets
-	{ "sudormrfbin/cheatsheet.nvim", lazy = true },
+	{
+		"sudormrfbin/cheatsheet.nvim",
+		config = function()
+			require("cheatsheet").setup()
+		end,
+	},
 
 	-- cursorline modes
-	"mvllow/modes.nvim",
+	{
+		"mvllow/modes.nvim",
+		config = function()
+			require("modes").setup({
+				colors = {
+					copy = "#f5c359",
+					delete = "#c75c6a",
+					insert = "#669fa8",
+					visual = "#9745be",
+				},
+
+				-- Cursorline highlight opacity
+				line_opacity = 0.2,
+
+				-- Highlight cursor
+				set_cursor = false,
+
+				-- Highlight in active window only
+				focus_only = false,
+			})
+		end,
+	},
 
 	-- advanced text objects
 	"wellle/targets.vim",
 
 	-- remove trailing whitespace and extra empty lines at the end
-	"mcauley-penney/tidy.nvim",
+	{
+		"mcauley-penney/tidy.nvim",
+		config = function()
+			require("tidy").setup()
+		end,
+	},
 
 	-- show colorcolumn but in virtual text
-	"lukas-reineke/virt-column.nvim",
+	{
+		"lukas-reineke/virt-column.nvim",
+		config = function()
+			require("virt-column").setup()
+		end,
+	},
 
 	-- plugin for easy browsing
 	{ "lalitmee/browse.nvim", lazy = true },
 
 	-- plugin for surround operation
-	"kylechui/nvim-surround",
+	{
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
 
 	-- plugin to show current scope in status line
 	"SmiteshP/nvim-navic",
@@ -641,16 +829,68 @@ return {
 	},
 
 	-- treesitter text objects
-	"nvim-treesitter/nvim-treesitter-textobjects",
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				textobjects = {
+					select = {
+						enable = true,
+						-- Automatically jump forward to textobj, similar to targets.vim
+						lookahead = true,
+
+						keymaps = {
+							-- You can use the capture groups defined in textobjects.scm
+							["af"] = "@function.outer",
+							["if"] = "@function.inner",
+							["ac"] = "@class.outer",
+							["ic"] = "@class.inner",
+						},
+					},
+					move = {
+						enable = true,
+						set_jumps = true, -- whether to set jumps in the jumplist
+						goto_next_start = {
+							["]m"] = "@function.outer",
+							["]]"] = "@class.outer",
+						},
+						goto_next_end = {
+							["]M"] = "@function.outer",
+							["]["] = "@class.outer",
+						},
+						goto_previous_start = {
+							["[m"] = "@function.outer",
+							["[["] = "@class.outer",
+						},
+						goto_previous_end = {
+							["[M"] = "@function.outer",
+							["[]"] = "@class.outer",
+						},
+					},
+				},
+			})
+		end,
+	},
 
 	-- treesitter context
-	"nvim-treesitter/nvim-treesitter-context",
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("treesitter-context").setup()
+		end,
+	},
 
 	-- nvim notify
 	"rcarriga/nvim-notify",
 
 	-- substitute
-	{ "gbprod/substitute.nvim", lazy = true },
+	{
+		"gbprod/substitute.nvim",
+		lazy = true,
+		config = function()
+			require("substitute").setup()
+		end,
+	},
 
 	-- color picker
 	{
@@ -665,16 +905,38 @@ return {
 	"stevearc/dressing.nvim",
 
 	-- task runner
-	{ "jedrzejboczar/toggletasks.nvim", lazy = true },
+	{
+		"jedrzejboczar/toggletasks.nvim",
+		lazy = true,
+		config = function()
+			require("toggletasks").setup()
+		end,
+	},
 
 	-- better sorting
-	{ "SQVe/sort.nvim", lazy = true },
+	{
+		"SQVe/sort.nvim",
+		lazy = true,
+		config = function()
+			require("sort").setup()
+		end,
+	},
 
 	-- better integration with system clipboard
 	"ojroques/nvim-osc52",
 
 	-- better folding
-	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = { "kevinhwang91/promise-async" },
+		config = function()
+			require("ufo").setup({
+				provider_selector = function()
+					return { "treesitter", "indent" }
+				end,
+			})
+		end,
+	},
 
 	-- better lsp diagnostics
 	{ "ErichDonGubler/lsp_lines.nvim", lazy = true },
@@ -683,26 +945,92 @@ return {
 	{ "mizlan/iswap.nvim" },
 
 	-- better highlighting/filtering of todos etc. in comments
-	"folke/todo-comments.nvim",
+	{
+		"folke/todo-comments.nvim",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	},
 
-	-- smart inverter for wordsr
-	{ "nguyenvukhang/nvim-toggler", lazy = true },
+	-- smart inverter for words
+	{
+		"nguyenvukhang/nvim-toggler",
+		lazy = true,
+		config = function()
+			require("nvim-toggler").setup({
+				remove_default_keybinds = true,
+			})
+		end,
+	},
 
 	-- autolist plugin for markdown
-	{ "gaoDean/autolist.nvim", lazy = true },
+	{
+		"gaoDean/autolist.nvim",
+		ft = {
+			"markdown",
+			"text",
+			"tex",
+			"plaintex",
+			"norg",
+		},
+		config = function()
+			require("autolist").setup()
 
+			vim.keymap.set("i", "<tab>", "<cmd>AutolistTab<cr>")
+			vim.keymap.set("i", "<s-tab>", "<cmd>AutolistShiftTab<cr>")
+			-- vim.keymap.set("i", "<c-t>", "<c-t><cmd>AutolistRecalculate<cr>") -- an example of using <c-t> to indent
+			vim.keymap.set("i", "<CR>", "<CR><cmd>AutolistNewBullet<cr>")
+			vim.keymap.set("n", "o", "o<cmd>AutolistNewBullet<cr>")
+			vim.keymap.set("n", "O", "O<cmd>AutolistNewBulletBefore<cr>")
+			vim.keymap.set("n", "<CR>", "<cmd>AutolistToggleCheckbox<cr><CR>")
+			vim.keymap.set("n", "<C-r>", "<cmd>AutolistRecalculate<cr>")
+
+			-- cycle list types with dot-repeat
+			vim.keymap.set("n", "<leader>cn", require("autolist").cycle_next_dr, { expr = true })
+			vim.keymap.set("n", "<leader>cp", require("autolist").cycle_prev_dr, { expr = true })
+
+			-- if you don't want dot-repeat
+			-- vim.keymap.set("n", "<leader>cn", "<cmd>AutolistCycleNext<cr>")
+			-- vim.keymap.set("n", "<leader>cp", "<cmd>AutolistCycleNext<cr>")
+
+			-- functions to recalculate list on edit
+			vim.keymap.set("n", ">>", ">><cmd>AutolistRecalculate<cr>")
+			vim.keymap.set("n", "<<", "<<<cmd>AutolistRecalculate<cr>")
+			vim.keymap.set("n", "dd", "dd<cmd>AutolistRecalculate<cr>")
+			vim.keymap.set("v", "d", "d<cmd>AutolistRecalculate<cr>")
+		end,
+	},
 	-- plugin for fancy code screenshots
-	-- {
-	-- 	"krivahtoo/silicon.nvim",
-	-- 	build = "./install.sh build",
-	-- },
-	{ "mistricky/codesnap.nvim", build = "make build_generator" },
+	{
+		"mistricky/codesnap.nvim",
+		build = "make build_generator",
+		config = function()
+			require("codesnap").setup({
+				mac_window_bar = true,
+				title = "",
+				code_font_family = "FiraCode Nerd Font Mono",
+				watermark_font_family = "Pacifico",
+				watermark = "",
+				bg_color = "#8877ff",
+				breadcrumbs_separator = "/",
+				has_breadcrumbs = true,
+				has_line_number = true,
+				show_workspace = false,
+				save_path = "/Users/nmadnani/Desktop",
+			})
+		end,
+	},
 
 	-- plugin to support nim
 	{ "alaviss/nim.nvim", ft = "nim" },
 
 	-- plugin for typos in files and directory names
-	{ "axieax/typo.nvim" },
+	{
+		"axieax/typo.nvim",
+		config = function()
+			require("typo").setup()
+		end,
+	},
 
 	-- plugin for generating gitignore files
 	{ "wintermute-cell/gitignore.nvim" },
@@ -759,9 +1087,6 @@ return {
 			require("copilot_cmp").setup()
 		end,
 	},
-
-	-- add gen.nvim for local LLM integration
-	{ "David-Kunz/gen.nvim" },
 
 	-- heuristic buffer auto close
 	{

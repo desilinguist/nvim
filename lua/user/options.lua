@@ -44,6 +44,9 @@ local options = {
     foldenable = true,
 }
 
+-- speed up module loading
+vim.loader.enable()
+
 vim.opt.shortmess:append("c")
 
 for k, v in pairs(options) do
@@ -56,7 +59,6 @@ vim.g.markdown_fenced_languages = {"bash=sh", "javascript", "json=javascript", "
 -- set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])

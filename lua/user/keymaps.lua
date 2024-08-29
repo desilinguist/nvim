@@ -1,15 +1,5 @@
 local opts = { noremap = true, silent = true }
 
--- local term_opts = { silent = true }
-
--- setup substitute plugin for later keymaps
-local status_ok, substitute = pcall(require, "substitute")
-if not status_ok then
-	return
-end
-
-substitute.setup({})
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 

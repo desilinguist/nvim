@@ -9,6 +9,7 @@ if not status_ok2 then
 end
 
 local servers = {
+    "basedpyright",
 	"bashls",
 	"cssls",
 	"emmet_ls",
@@ -19,7 +20,7 @@ local servers = {
 	"lua_ls",
 	"marksman",
 	"nimls",
-	"pyright",
+	-- "pyright",
 	"r_language_server",
     "ruff_lsp",
     "taplo",

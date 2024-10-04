@@ -216,3 +216,5 @@ STDOUT
 LBs
 IPv4
 Cloudwatch
+arm64
+operationalized

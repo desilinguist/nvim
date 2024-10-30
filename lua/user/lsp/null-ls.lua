@@ -13,10 +13,8 @@ local formatting = null_ls.builtins.formatting
 -- are we local or on the ETS servers
 local machine = os.getenv("NVIM_MACHINE")
 local linter_path
-if machine == "ets" then
-	linter_path = "/opt/python/linters/bin/"
-elseif machine == "ec2" then
-	linter_path = "/home/ec2-user/miniconda/bin/"
+if machine == "gcp" then
+	linter_path = "/opt/conda/envs/linters/bin/"
 else
 	linter_path = "/Users/nmadnani/anaconda/envs/linters/bin/"
 end

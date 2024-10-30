@@ -397,13 +397,6 @@ return {
 				-- Terminal bindings
 				{ "<leader>t", group = "Terminal" },
 				{
-					"<leader>tu",
-					function()
-						_NCDU_TOGGLE()
-					end,
-					desc = "NCDU",
-				},
-				{
 					"<leader>tt",
 					function()
 						_HTOP_TOGGLE()
@@ -492,7 +485,6 @@ return {
 					"jsonnet",
 					"julia",
 					"kotlin",
-					"latex",
 					"llvm",
 					"lua",
 					"luadoc",

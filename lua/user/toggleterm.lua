@@ -39,27 +39,16 @@ end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
--- are we local or on the ETS servers
+-- are we local or on the GCP instance
 local machine = os.getenv("NVIM_MACHINE")
 local lazygit_dir
-local gitui_dir
-if machine == "ets" then
-    lazygit_dir = "/opt/python/lazygit/bin/"
-    gitui_dir = "/opt/rust/cargo/bin/"
-elseif machine == "ec2" then
-    lazygit_dir = "/home/ec2-user/miniconda/bin/"
-    gitui_dir = ""
+if machine == "gcp" then
+    lazygit_dir = "/home/nitin_duolingo_com/bin/"
 else
-    lazygit_dir = "/opt/local/bin/"
-    gitui_dir = "/opt/local/bin/"
+    lazygit_dir = "/opt/homebrew/bin/"
 end
 
 local Terminal = require("toggleterm.terminal").Terminal
-local gitui = Terminal:new({ cmd = gitui_dir .. "gitui", direction = "float", hidden = true })
-
-function _GITUI_TOGGLE()
-	gitui:toggle()
-end
 
 local lazygit = Terminal:new({
 	cmd = lazygit_dir .. "lazygit",
@@ -79,12 +68,6 @@ local lazygit = Terminal:new({
 
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
-end
-
-local ncdu = Terminal:new({ cmd = "ncdu", direction = "float", hidden = true })
-
-function _NCDU_TOGGLE()
-	ncdu:toggle()
 end
 
 local htop = Terminal:new({ cmd = "htop", direction = "float", hidden = true })

@@ -16,21 +16,13 @@ local linter_path
 if machine == "gcp" then
 	linter_path = "/opt/conda/envs/linters/bin/"
 else
-	linter_path = "/Users/nmadnani/anaconda/envs/linters/bin/"
+	linter_path = "/Users/nitin/miniforge3/envs/linters/bin/"
 end
 
-local nim_pretty_path = "/Users/nmadnani/nim-1.6.10/bin/"
 
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.black.with({
-			command = linter_path .. "black",
-			extra_args = { "--line-length", "100" },
-		}),
-		formatting.nimpretty.with({
-			command = nim_pretty_path .. "nimpretty",
-		}),
 		formatting.prettier.with({
 			filetypes = { "html", "javascript", "typescript", "css", "scss", "less" },
 		}),

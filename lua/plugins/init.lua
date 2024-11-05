@@ -24,10 +24,14 @@ return {
                 {
                     "<leader>b",
                     function()
-                        require("telescope").extensions.hbac.buffers(
-                            require("telescope.themes").get_dropdown({ previewer = false })
-                        )
+                        require("snipe").open_buffer_menu()
                     end,
+                    -- desc = "Open Snipe buffer menu",
+                    -- function()
+                    --     require("telescope").extensions.hbac.buffers(
+                    --         require("telescope.themes").get_dropdown({ previewer = false })
+                    --     )
+                    -- end,
                     desc = "Buffers",
                 },
                 {
@@ -1121,6 +1125,15 @@ return {
                 -- See Configuration section for rest
             },
             -- See Commands section for default commands if you want to lazy load on them
+        },
+    },
+
+    {
+        "leath-dub/snipe.nvim",
+        opts = {
+            ui = {
+                position = "center",
+            }
         },
     },
 }

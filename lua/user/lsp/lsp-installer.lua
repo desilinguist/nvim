@@ -22,7 +22,7 @@ local servers = {
 	"nimls",
 	"pyright",
 	"r_language_server",
-    "ruff_lsp",
+    "ruff",
     "taplo",
 	"terraformls",
 	"tflint",

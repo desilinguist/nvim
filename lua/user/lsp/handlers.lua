@@ -85,7 +85,7 @@ end
 
 -- attach navic to all clients except the ones below
 local excluded_clients = {
-	ruff_lsp = true,
+    ruff = true,
 	tflint = true,
     emmet_ls = true,
 }

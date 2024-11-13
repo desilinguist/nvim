@@ -59,7 +59,7 @@ Let's open Neovim and try to identify all the parts we see on the screen.
 <a name="textediting"></a>
 ## Text editing & navigation
 
-- ["modal editor"](https://en.wikipedia.org/wiki/Vi#Interface).
+- ["modal editor"](https://en.wikipedia.org/wiki/Vi_(text_editor)#Interface).
 - normal/insert mode
 - insert mode is boring, arrow keys, usual typing : just like VS Code/Sublime
 - normal mode is where it's at!

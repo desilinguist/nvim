@@ -1033,17 +1033,6 @@ return {
     -- plugin for generating gitignore files
     { "wintermute-cell/gitignore.nvim" },
 
-    -- codegpt plugin
-    {
-        "dpayne/CodeGPT.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "MunifTanjim/nui.nvim",
-        },
-        config = function()
-            require("codegpt.config")
-        end,
-    },
 
     --- conda env selector
     {

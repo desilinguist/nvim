@@ -1033,7 +1033,6 @@ return {
     -- plugin for generating gitignore files
     { "wintermute-cell/gitignore.nvim" },
 
-
     --- conda env selector
     {
         "kmontocam/nvim-conda",
@@ -1116,13 +1115,17 @@ return {
             -- See Commands section for default commands if you want to lazy load on them
         },
     },
-
     {
         "leath-dub/snipe.nvim",
-        opts = {
-            ui = {
-                position = "center",
-            }
+        keys = {
+            {
+                "gb",
+                function()
+                    require("snipe").open_buffer_menu()
+                end,
+                desc = "Open Snipe buffer menu",
+            },
         },
+        opts = {},
     },
 }

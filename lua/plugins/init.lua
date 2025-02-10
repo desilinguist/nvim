@@ -1092,14 +1092,6 @@ return {
     },
 
     {
-        "OXY2DEV/helpview.nvim",
-        lazy = false, -- Recommended
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-    },
-
-    {
         {
             "CopilotC-Nvim/CopilotChat.nvim",
             branch = "main",

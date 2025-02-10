@@ -1120,4 +1120,10 @@ return {
         },
         opts = {},
     },
+
+    -- markdown preview plugin
+    {
+        "OXY2DEV/markview.nvim",
+        lazy = false,
+    },
 }

@@ -1033,12 +1033,6 @@ return {
     -- plugin for generating gitignore files
     { "wintermute-cell/gitignore.nvim" },
 
-    --- conda env selector
-    {
-        "kmontocam/nvim-conda",
-        dependencies = { "nvim-lua/plenary.nvim" },
-    },
-
     -- better search/replace experience
     {
         "roobert/search-replace.nvim",

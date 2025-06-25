@@ -439,6 +439,11 @@ return {
             })
         end,
     },
+        -- markdown preview plugin
+    {
+        "OXY2DEV/markview.nvim",
+        lazy = false,
+    },
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
@@ -1099,9 +1104,4 @@ return {
         opts = {},
     },
 
-    -- markdown preview plugin
-    {
-        "OXY2DEV/markview.nvim",
-        lazy = false,
-    },
 }

@@ -98,7 +98,7 @@ keymap("i", "<C-i>", "<cmd>PickIconsInsert<cr>", opts)
 keymap("i", "<C-s>", "<cmd>PickSymbolsInsert<cr>", opts)
 
 -- map Esc in insert mode to :w in normal mode
-keymap("i", "<Esc>", "<Esc>:w<CR>", { noremap = true })
+-- keymap("i", "<Esc>", "<Esc>:w<CR>", { noremap = true })
 
 -- special delete and paste
 keymap("n", "<leader>d", '"_d', opts)

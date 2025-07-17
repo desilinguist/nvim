@@ -697,24 +697,6 @@ return {
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
 
-    -- neogen
-    {
-        "danymat/neogen",
-        config = function()
-            require("neogen").setup({
-                enabled = true,
-                snippet_engine = "luasnip",
-                languages = {
-                    python = {
-                        template = {
-                            annotation_convention = "numpydoc",
-                        },
-                    },
-                },
-            })
-        end,
-    },
-
     -- colorizer
     {
         "norcalli/nvim-colorizer.lua",
@@ -744,14 +726,6 @@ return {
         "luukvbaal/stabilize.nvim",
         config = function()
             require("stabilize").setup()
-        end,
-    },
-
-    -- cheatsheets
-    {
-        "sudormrfbin/cheatsheet.nvim",
-        config = function()
-            require("cheatsheet").setup()
         end,
     },
 
@@ -797,9 +771,6 @@ return {
             require("virt-column").setup()
         end,
     },
-
-    -- plugin for easy browsing
-    { "lalitmee/browse.nvim", lazy = true },
 
     -- plugin for surround operation
     {
@@ -944,7 +915,7 @@ return {
     },
 
     -- better lsp diagnostics
-    { "ErichDonGubler/lsp_lines.nvim", lazy = true },
+    -- { "ErichDonGubler/lsp_lines.nvim", lazy = true },
 
     -- easy swapping of things
     { "mizlan/iswap.nvim" },
@@ -1027,7 +998,7 @@ return {
     },
 
     -- plugin to support nim
-    { "alaviss/nim.nvim", ft = "nim" },
+    -- { "alaviss/nim.nvim", ft = "nim" },
 
     -- plugin for typos in files and directory names
     {
@@ -1053,7 +1024,7 @@ return {
     },
 
     -- center buffers for better editing
-    { "shortcuts/no-neck-pain.nvim", version = "*" },
+    -- { "shortcuts/no-neck-pain.nvim", version = "*" },
 
     -- add github copilot integration
     {

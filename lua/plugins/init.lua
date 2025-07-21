@@ -439,16 +439,16 @@ return {
             })
         end,
     },
-        -- markdown preview plugin
+    -- markdown preview plugin
     {
         "OXY2DEV/markview.nvim",
-        event = 'VeryLazy',
+        event = "VeryLazy",
     },
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        dependencies = { 'OXY2DEV/markview.nvim' },
+        dependencies = { "OXY2DEV/markview.nvim" },
         lazy = false,
         config = function()
             require("nvim-treesitter.configs").setup({
@@ -1076,5 +1076,4 @@ return {
         },
         opts = {},
     },
-
 }

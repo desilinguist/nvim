@@ -668,7 +668,6 @@ return {
     "neovim/nvim-lspconfig", -- enable LSP
     "williamboman/mason.nvim", -- simple to use language server installer
     "williamboman/mason-lspconfig.nvim",
-    -- "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
     "nvimtools/none-ls.nvim", -- for formatters and linters
     "tamago324/nlsp-settings.nvim", -- Common null-ls settings
     "ray-x/lsp_signature.nvim", -- Show signature of any function while typing it
@@ -1032,10 +1031,7 @@ return {
         cmd = "Copilot",
         event = "InsertEnter",
         config = function()
-            require("copilot").setup({
-                suggestion = { enabled = false },
-                panel = { enabled = false },
-            })
+            require("copilot").setup()
         end,
     },
 

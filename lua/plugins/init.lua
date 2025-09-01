@@ -26,12 +26,6 @@ return {
                     function()
                         require("snipe").open_buffer_menu()
                     end,
-                    -- desc = "Open Snipe buffer menu",
-                    -- function()
-                    --     require("telescope").extensions.hbac.buffers(
-                    --         require("telescope.themes").get_dropdown({ previewer = false })
-                    --     )
-                    -- end,
                     desc = "Buffers",
                 },
                 {
@@ -543,7 +537,7 @@ return {
                     "yaml",
                     "zig",
                 },
-                sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+                sync_install = false,    -- install languages synchronously (only applied to `ensure_installed`)
                 auto_install = true,
                 ignore_install = { "" }, -- List of parsers to ignore installing
                 autopairs = {
@@ -553,7 +547,7 @@ return {
                     enable = true,
                 },
                 highlight = {
-                    enable = true, -- false will disable the whole extension
+                    enable = true,    -- false will disable the whole extension
                     disable = { "" }, -- list of language that will be disabled
                     additional_vim_regex_highlighting = true,
                 },
@@ -561,16 +555,16 @@ return {
             })
         end,
     },
-    "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
-    "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
-    "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+    "nvim-lua/popup.nvim",                     -- An implementation of the Popup API from vim in Neovim
+    "nvim-lua/plenary.nvim",                   -- Useful lua functions used ny lots of plugins
+    "windwp/nvim-autopairs",                   -- Autopairs, integrates with both cmp and treesitter
     { "windwp/nvim-ts-autotag", lazy = true }, -- Autocomplete and rename tags
     {
         "numToStr/Comment.nvim",
         config = function()
             require("Comment").setup()
         end,
-    }, -- Easily comment stuff
+    },                              -- Easily comment stuff
     "kyazdani42/nvim-web-devicons", -- Use fancy icons for various file types
     {
         "nvim-tree/nvim-tree.lua",
@@ -627,10 +621,10 @@ return {
         end,
     },
     -- "kyazdani42/nvim-tree.lua",             -- Use a fancy filetree side bar
-    "akinsho/bufferline.nvim", -- Easy graphical switching between open buffers
-    "moll/vim-bbye", -- Easy buffer closing without messing up layouts
+    "akinsho/bufferline.nvim",   -- Easy graphical switching between open buffers
+    "moll/vim-bbye",             -- Easy buffer closing without messing up layouts
     "nvim-lualine/lualine.nvim", -- Fancy status line at the bottom
-    "akinsho/toggleterm.nvim", -- Open terminals and terminal programs in floating windows
+    "akinsho/toggleterm.nvim",   -- Open terminals and terminal programs in floating windows
 
     -- Colorschemes
     {
@@ -650,29 +644,29 @@ return {
     },
 
     -- cmp plugins
-    "hrsh7th/nvim-cmp", -- The completion plugin
-    "hrsh7th/cmp-buffer", -- buffer completions
-    "hrsh7th/cmp-path", -- path completions
-    "hrsh7th/cmp-cmdline", -- cmdline completions
-    "saadparwaiz1/cmp_luasnip", -- snippet completions
-    "hrsh7th/cmp-nvim-lsp", -- lsp completions
-    "hrsh7th/cmp-nvim-lua", -- nvim lua completions
-    "hrsh7th/cmp-calc", -- calculator completions
+    "hrsh7th/nvim-cmp",                   -- The completion plugin
+    "hrsh7th/cmp-buffer",                 -- buffer completions
+    "hrsh7th/cmp-path",                   -- path completions
+    "hrsh7th/cmp-cmdline",                -- cmdline completions
+    "saadparwaiz1/cmp_luasnip",           -- snippet completions
+    "hrsh7th/cmp-nvim-lsp",               -- lsp completions
+    "hrsh7th/cmp-nvim-lua",               -- nvim lua completions
+    "hrsh7th/cmp-calc",                   -- calculator completions
     "lukas-reineke/cmp-under-comparator", -- better sort completion items that start with underlines
 
     -- snippets
-    "L3MON4D3/LuaSnip", --snippet engine
+    "L3MON4D3/LuaSnip",             --snippet engine
     "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
     -- LSP
-    "neovim/nvim-lspconfig", -- enable LSP
-    "williamboman/mason.nvim", -- simple to use language server installer
+    "neovim/nvim-lspconfig",                     -- enable LSP
+    "williamboman/mason.nvim",                   -- simple to use language server installer
     "williamboman/mason-lspconfig.nvim",
-    "nvimtools/none-ls.nvim", -- for formatters and linters
-    "tamago324/nlsp-settings.nvim", -- Common null-ls settings
-    "ray-x/lsp_signature.nvim", -- Show signature of any function while typing it
-    "b0o/SchemaStore.nvim", -- Use SchemaStore for various JSON/YAML schemas
-    { "j-hui/fidget.nvim", config = true }, -- Show LSP progress, if available
+    "nvimtools/none-ls.nvim",                    -- for formatters and linters
+    "tamago324/nlsp-settings.nvim",              -- Common null-ls settings
+    "ray-x/lsp_signature.nvim",                  -- Show signature of any function while typing it
+    "b0o/SchemaStore.nvim",                      -- Use SchemaStore for various JSON/YAML schemas
+    { "j-hui/fidget.nvim",      config = true }, -- Show LSP progress, if available
 
     -- Telescope
     "nvim-telescope/telescope.nvim",
@@ -690,10 +684,10 @@ return {
     { "nvim-telescope/telescope-live-grep-args.nvim" },
 
     -- Git
-    { "lewis6991/gitsigns.nvim", config = true },
+    { "lewis6991/gitsigns.nvim",                     config = true },
 
     -- Indentline
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    { "lukas-reineke/indent-blankline.nvim",         main = "ibl", opts = {} },
     "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
 
     -- colorizer
@@ -1072,4 +1066,13 @@ return {
         },
         opts = {},
     },
+    {
+        "tiagovla/tokyodark.nvim",
+        opts = {
+            -- custom options here
+        },
+        config = function(_, opts)
+            require("tokyodark").setup(opts) -- calling setup is optional
+        end,
+    }
 }

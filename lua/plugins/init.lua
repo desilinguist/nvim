@@ -972,26 +972,19 @@ return {
     -- plugin for fancy code screenshots
     {
         "mistricky/codesnap.nvim",
-        build = "make build_generator",
+        tag = "v2.0.0-beta.17",
         config = function()
             require("codesnap").setup({
-                mac_window_bar = true,
-                title = "",
-                code_font_family = "FiraCode Nerd Font Mono",
-                watermark_font_family = "Pacifico",
-                watermark = "",
-                bg_color = "#8877ff",
-                breadcrumbs_separator = "/",
-                has_breadcrumbs = true,
-                has_line_number = true,
-                show_workspace = false,
-                save_path = "/Users/nmadnani/Desktop",
+                snapshot_config = {
+                    watermark = {
+                        content = "",
+                    },
+                    background = "#00000000",
+                },
+
             })
         end,
     },
-
-    -- plugin to support nim
-    -- { "alaviss/nim.nvim", ft = "nim" },
 
     -- plugin for typos in files and directory names
     {
@@ -1015,9 +1008,6 @@ return {
             })
         end,
     },
-
-    -- center buffers for better editing
-    -- { "shortcuts/no-neck-pain.nvim", version = "*" },
 
     -- add github copilot integration
     {

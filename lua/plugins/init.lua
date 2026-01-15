@@ -1059,7 +1059,7 @@ return {
     {
         "saxon1964/neovim-tips",
         version = "*", -- Only update on tagged releases
-        lazy = true, -- Load only when keybinds are triggered
+        lazy = true,   -- Load only when keybinds are triggered
         dependencies = {
             "MunifTanjim/nui.nvim",
             "OXY2DEV/markview.nvim", -- Rich rendering with advanced features
@@ -1091,63 +1091,30 @@ return {
         end,
     },
     {
-        "folke/sidekick.nvim",
-        opts = {
-            -- add any options here
-            cli = {
-                win = {
-                    layout = "bottom",
-                },
-                mux = {
-                    backend = "tmux",
-                    enabled = true,
-                },
-            },
-        },
+        "snirt/claudecode.nvim",
+        dependencies = { "folke/snacks.nvim" },
+        config = true,
         keys = {
+            { "<leader>a",  nil,                              desc = "AI/Claude Code" },
+            { "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
+            { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
+            { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
+            { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+            { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+            { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Add current buffer" },
+            { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                  desc = "Send to Claude" },
             {
-                "<tab>",
-                function()
-                    -- if there is a next edit, jump to it, otherwise apply it if any
-                    if not require("sidekick").nes_jump_or_apply() then
-                        return "<Tab>" -- fallback to normal tab
-                    end
-                end,
-                expr = true,
-                desc = "Goto/Apply Next Edit Suggestion",
+                "<leader>as",
+                "<cmd>ClaudeCodeTreeAdd<cr>",
+                desc = "Add file",
+                ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
             },
-            {
-                "<c-.>",
-                function()
-                    require("sidekick.cli").focus()
-                end,
-                mode = { "n", "x", "i", "t" },
-                desc = "Sidekick Switch Focus",
-            },
-            {
-                "<leader>aa",
-                function()
-                    require("sidekick.cli").toggle({ focus = true })
-                end,
-                desc = "Sidekick Toggle CLI",
-                mode = { "n", "v" },
-            },
-            {
-                "<leader>ac",
-                function()
-                    require("sidekick.cli").toggle({ name = "claude", focus = true })
-                end,
-                desc = "Sidekick Claude Toggle",
-                mode = { "n", "v" },
-            },
-            {
-                "<leader>ap",
-                function()
-                    require("sidekick.cli").select_prompt()
-                end,
-                desc = "Sidekick Ask Prompt",
-                mode = { "n", "v" },
-            },
+            -- Diff management
+            { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+            { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Deny diff" },
+            -- Multi-session management
+            { "<leader>an", "<cmd>ClaudeCodeNew<cr>",        desc = "New Claude session" },
+            { "<leader>al", "<cmd>ClaudeCodeSessions<cr>",   desc = "List Claude sessions" },
         },
     }
 }

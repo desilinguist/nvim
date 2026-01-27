@@ -806,9 +806,6 @@ return {
     -- better lsp diagnostics
     -- { "ErichDonGubler/lsp_lines.nvim", lazy = true },
 
-    -- easy swapping of things
-    { "mizlan/iswap.nvim" },
-
     -- better highlighting/filtering of todos etc. in comments
     {
         "folke/todo-comments.nvim",

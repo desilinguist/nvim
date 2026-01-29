@@ -442,13 +442,90 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        dependencies = { "OXY2DEV/markview.nvim" },
+        dependencies = { "OXY2DEV/markview.nvim", { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" } },
         lazy = false,
         config = function()
             local treesitter = require("nvim-treesitter")
             treesitter.setup()
-            treesitter.install {'awk', 'bash', 'bibtex', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'commonlisp', 'cpp', 'css', 'csv', 'diff', 'disassembly', 'dockerfile', 'dot', 'doxygen', 'dtd', 'fish', 'fortran', 'git_config', 'git_rebase', 'gitattributes', 'gitcommit', 'gitignore', 'gnuplot', 'go', 'gpg', 'haskell', 'hcl', 'html', 'http', 'ini', 'java', 'javascript', 'jq', 'jsdoc', 'json', 'json5', 'jsonc', 'jsonnet', 'julia', 'kotlin', 'llvm', 'lua', 'luadoc', 'make', 'markdown', 'markdown_inline', 'matlab', 'mermaid', 'nim', 'nim_format_string', 'nix', 'objc', 'objdump', 'pascal', 'passwd', 'pem', 'perl', 'php', 'php_only', 'phpdoc', 'printf', 'properties', 'pymanifest', 'python', 'r', 'readline', 'regex', 'requirements', 'rst', 'ruby', 'rust', 'scss', 'sql', 'ssh_config', 'tcl', 'terraform', 'tmux', 'todotxt', 'toml', 'tsv', 'typescript', 'vim', 'vimdoc', 'xml', 'yaml', 'zig' }
-        end,
+            treesitter.install { 'awk', 'bash', 'bibtex', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'commonlisp', 'cpp', 'css', 'csv', 'diff', 'disassembly', 'dockerfile', 'dot', 'doxygen', 'dtd', 'fish', 'fortran', 'git_config', 'git_rebase', 'gitattributes', 'gitcommit', 'gitignore', 'gnuplot', 'go', 'gpg', 'haskell', 'hcl', 'html', 'http', 'ini', 'java', 'javascript', 'jq', 'jsdoc', 'json', 'json5', 'jsonc', 'jsonnet', 'julia', 'kotlin', 'llvm', 'lua', 'luadoc', 'make', 'markdown', 'markdown_inline', 'matlab', 'mermaid', 'nim', 'nim_format_string', 'nix', 'objc', 'objdump', 'pascal', 'passwd', 'pem', 'perl', 'php', 'php_only', 'phpdoc', 'printf', 'properties', 'pymanifest', 'python', 'r', 'readline', 'regex', 'requirements', 'rst', 'ruby', 'rust', 'scss', 'sql', 'ssh_config', 'tcl', 'terraform', 'tmux', 'todotxt', 'toml', 'tsv', 'typescript', 'vim', 'vimdoc', 'xml', 'yaml', 'zig' }
+
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = { 'python', 'lua', 'markdown', 'json' },
+                callback = function()
+                    vim.treesitter.start()
+                end
+            })
+
+            require("nvim-treesitter-textobjects").setup {
+                select = {
+                -- Automatically jump forward to textobj, similar to targets.vim
+                lookahead = true,
+                -- You can choose the select mode (default is charwise 'v')
+                --
+                -- Can also be a function which gets passed a table with the keys
+                -- * query_string: eg '@function.inner'
+                -- * method: eg 'v' or 'o'
+                -- and should return the mode ('v', 'V', or '<c-v>') or a table
+                -- mapping query_strings to modes.
+                selection_modes = {
+                    ['@parameter.outer'] = 'v', -- charwise
+                    ['@function.outer'] = 'V' -- linewise
+                    -- ['@class.outer'] = '<c-v>', -- blockwise
+                },
+                -- If you set this to `true` (default is `false`) then any textobject is
+                -- extended to include preceding or succeeding whitespace. Succeeding
+                -- whitespace has priority in order to act similarly to eg the built-in
+                -- `ap`.
+                --
+                -- Can also be a function which gets passed a table with the keys
+                -- * query_string: eg '@function.inner'
+                -- * selection_mode: eg 'v'
+                -- and should return true of false
+                include_surrounding_whitespace = false
+                },
+                move = {
+                -- whether to set jumps in the jumplist
+                    set_jumps = true
+                }
+            }
+
+            -- keymaps
+            -- You can use the capture groups defined in `textobjects.scm`
+            vim.keymap.set({"x", "o"}, "af", function()
+                require"nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
+            end)
+            vim.keymap.set({"x", "o"}, "if", function()
+                require"nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
+            end)
+            vim.keymap.set({"x", "o"}, "ac", function()
+                require"nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
+            end)
+            vim.keymap.set({"x", "o"}, "ic", function()
+                require"nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
+            end)
+
+            -- keymaps
+            -- You can use the capture groups defined in `textobjects.scm`
+            vim.keymap.set({"n", "x", "o"}, "]m", function()
+                require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects")
+            end)
+            vim.keymap.set({"n", "x", "o"}, "]]", function()
+                require("nvim-treesitter-textobjects.move").goto_next_start("@class.outer", "textobjects")
+            end)
+            -- You can also pass a list to group multiple queries.
+            vim.keymap.set({"n", "x", "o"}, "]o", function()
+                require("nvim-treesitter-textobjects.move").goto_next_start({"@loop.inner", "@loop.outer"}, "textobjects")
+            end)
+            vim.keymap.set({"n", "x", "o"}, "]M", function()
+                require("nvim-treesitter-textobjects.move").goto_next_end("@function.outer", "textobjects")
+            end)
+            vim.keymap.set({"n", "x", "o"}, "[m", function()
+                require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
+            end)
+            vim.keymap.set({"n", "x", "o"}, "[[", function()
+                require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
+            end)
+        end
     },
     "nvim-lua/popup.nvim",                     -- An implementation of the Popup API from vim in Neovim
     "nvim-lua/plenary.nvim",                   -- Useful lua functions used ny lots of plugins
@@ -687,53 +764,6 @@ return {
             -- if you need map in visual mode
             -- vim.api.nvim_set_keymap('v', 'j', '<Plug>(faster_vmove_j)', {noremap=false, silent=true})
             -- vim.api.nvim_set_keymap('v', 'k', '<Plug>(faster_vmove_k)', {noremap=false, silent=true})
-        end,
-    },
-
-    -- treesitter text objects
-    {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        branch = "main",
-        config = function()
-            require("nvim-treesitter.config").setup({
-                textobjects = {
-                    select = {
-                        enable = true,
-                        -- Automatically jump forward to textobj, similar to targets.vim
-                        lookahead = true,
-
-                        keymaps = {
-                            -- You can use the capture groups defined in textobjects.scm
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
-                            ["ac"] = "@class.outer",
-                            ["ic"] = "@class.inner",
-                            ["aa"] = "@parameter.outer",
-                            ["ia"] = "@parameter.inner",
-                        },
-                    },
-                    move = {
-                        enable = true,
-                        set_jumps = true, -- whether to set jumps in the jumplist
-                        goto_next_start = {
-                            ["]m"] = "@function.outer",
-                            ["]]"] = "@class.outer",
-                        },
-                        goto_next_end = {
-                            ["]M"] = "@function.outer",
-                            ["]["] = "@class.outer",
-                        },
-                        goto_previous_start = {
-                            ["[m"] = "@function.outer",
-                            ["[["] = "@class.outer",
-                        },
-                        goto_previous_end = {
-                            ["[M"] = "@function.outer",
-                            ["[]"] = "@class.outer",
-                        },
-                    },
-                },
-            })
         end,
     },
 

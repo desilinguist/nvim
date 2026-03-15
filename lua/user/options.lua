@@ -1,4 +1,5 @@
 local options = {
+	autoread = true, -- reload files changed outside of neovim
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 	cmdheight = 2, -- more space in the neovim command line for displaying messages
@@ -8,7 +9,7 @@ local options = {
 	hlsearch = true, -- do not highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
     inccommand = "split", -- show the effects of a search / replace in a live preview window
-	mouse = "a", -- allow the mouse to be used in neovim
+	mouse = "", -- disable mouse
     mmp = 8000, -- max mem pattern for JSON files
 	pumheight = 10, -- pop up menu height
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore

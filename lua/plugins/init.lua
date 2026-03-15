@@ -1024,7 +1024,7 @@ return {
             { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
             { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
             { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-            { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Add current buffer" },
+            { "<leader>ab", function() vim.cmd("ClaudeCodeAdd " .. vim.fn.expand("%")) end, desc = "Add current buffer" },
             { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                  desc = "Send to Claude" },
             {
                 "<leader>as",

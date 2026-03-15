@@ -20,13 +20,14 @@ local servers = {
 	"lua_ls",
 	"marksman",
 	"nimls",
-	"pyright",
+	-- "pyright",
 	"r_language_server",
     "ruff",
     "taplo",
 	"terraformls",
 	"tflint",
 	"ts_ls",
+    "ty",
 	"yamlls",
 }
 

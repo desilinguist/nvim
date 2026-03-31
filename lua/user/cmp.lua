@@ -1,151 +1,81 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-	return
-end
-
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-	return
-end
-
-local under_status_ok, undercompare = pcall(require, "cmp-under-comparator")
-if not under_status_ok then
+local status_ok, blink = pcall(require, "blink.cmp")
+if not status_ok then
 	return
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
-local check_backspace = function()
-	local col = vim.fn.col(".") - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-end
+blink.setup({
+	snippets = { preset = "luasnip" },
 
--- icons for completion items
-local kind_icons = {
-  Text = ' ',
-  Method = ' ',
-  Function = ' ',
-  Constructor = ' ',
-  Field = ' ',
-  Variable = ' ',
-  Class = ' ',
-  Interface = ' ',
-  Module = ' ',
-  Property = ' ',
-  Unit = ' ',
-  Value = ' ',
-  Enum = ' ',
-  Keyword = ' ',
-  Snippet = "",
-  Color = ' ',
-  File = ' ',
-  Reference = ' ',
-  Folder = ' ',
-  EnumMember = ' ',
-  Constant = ' ',
-  Struct = ' ',
-  Event = ' ',
-  Operator = ' ',
-  TypeParameter = ' ',
-  Copilot = ''
-}
--- find more here: https://www.nerdfonts.com/cheat-sheet
-
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip` users.
-		end,
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		-- ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-		["<C-e>"] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
-		-- Accept currently selected item. If none selected, `select` first item.
-		-- Set `select` to `false` to only confirm explicitly selected items.
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif check_backspace() then
-				fallback()
-			else
-				fallback()
-			end
-		end, {
-			"i",
-			"s",
-		}),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, {
-			"i",
-			"s",
-		}),
-	}),
-	formatting = {
-		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			-- Kind icons
-			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-			vim_item.menu = ({
-                copilot = "[Copilot]",
-				nvim_lsp = "[LSP]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
-				path = "[Path]",
-				calc = "[Calc]",
-			})[entry.source.name]
-			return vim_item
-		end,
-	},
-	sorting = {
-		comparators = {
-			cmp.config.compare.offset,
-			cmp.config.compare.exact,
-			cmp.config.compare.score,
-			undercompare.under,
-			cmp.config.compare.kind,
-			cmp.config.compare.sort_text,
-			cmp.config.compare.length,
-			cmp.config.compare.order,
+	sources = {
+		default = { "copilot", "lsp", "snippets", "buffer", "path" },
+		providers = {
+			copilot = {
+				name = "copilot",
+				module = "blink-cmp-copilot",
+				score_offset = 100,
+				async = true,
+			},
 		},
 	},
-	sources = {
-		{ name = "copilot", group_index = 2 },
-		{ name = "nvim_lsp", group_index = 2 },
-		{ name = "luasnip", group_index = 2 },
-		{ name = "buffer", group_index = 2 },
-		{ name = "path", group_index = 2 },
-		{ name = "calc", group_index = 2 },
+
+	keymap = {
+		preset = "none",
+		["<C-k>"] = { "select_prev", "fallback" },
+		["<C-j>"] = { "select_next", "fallback" },
+		["<Up>"] = { "select_prev", "fallback" },
+		["<Down>"] = { "select_next", "fallback" },
+		["<C-b>"] = { "scroll_documentation_up", "fallback" },
+		["<C-f>"] = { "scroll_documentation_down", "fallback" },
+		["<C-Space>"] = { "show", "fallback" },
+		["<C-e>"] = { "cancel", "fallback" },
+		["<CR>"] = { "accept", "fallback" },
+		["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
+		["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
 	},
-	confirm_opts = {
-		behavior = cmp.ConfirmBehavior.Replace,
-		select = false,
+
+	completion = {
+		menu = { border = "rounded" },
+		documentation = {
+			auto_show = true,
+			window = { border = "rounded" },
+		},
+		list = {
+			selection = { preselect = true, auto_insert = false },
+		},
 	},
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
-	experimental = {
-		ghost_text = false,
+
+	appearance = {
+		use_nvim_cmp_as_default = false,
+		nerd_font_variant = "mono",
+		kind_icons = {
+			Text = " ",
+			Method = " ",
+			Function = " ",
+			Constructor = " ",
+			Field = " ",
+			Variable = " ",
+			Class = " ",
+			Interface = " ",
+			Module = " ",
+			Property = " ",
+			Unit = " ",
+			Value = " ",
+			Enum = " ",
+			Keyword = " ",
+			Snippet = "",
+			Color = " ",
+			File = " ",
+			Reference = " ",
+			Folder = " ",
+			EnumMember = " ",
+			Constant = " ",
+			Struct = " ",
+			Event = " ",
+			Operator = " ",
+			TypeParameter = " ",
+			Copilot = "",
+		},
 	},
 })

@@ -36,15 +36,8 @@ vim.pack.add({
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
 
     -- Completion
-    'https://github.com/hrsh7th/nvim-cmp',
-    'https://github.com/hrsh7th/cmp-buffer',
-    'https://github.com/hrsh7th/cmp-path',
-    'https://github.com/hrsh7th/cmp-cmdline',
-    'https://github.com/saadparwaiz1/cmp_luasnip',
-    'https://github.com/hrsh7th/cmp-nvim-lsp',
-    'https://github.com/hrsh7th/cmp-nvim-lua',
-    'https://github.com/hrsh7th/cmp-calc',
-    'https://github.com/lukas-reineke/cmp-under-comparator',
+    'https://github.com/saghen/blink.cmp',
+    'https://github.com/giuxtaposition/blink-cmp-copilot',
 
     -- Snippets
     'https://github.com/L3MON4D3/LuaSnip',
@@ -89,7 +82,6 @@ vim.pack.add({
     'https://github.com/leath-dub/snipe.nvim',
     'https://github.com/PHSix/faster.nvim',
     'https://github.com/luukvbaal/stabilize.nvim',
-    'https://github.com/LunarVim/bigfile.nvim',
     'https://github.com/axkirillov/hbac.nvim',
     'https://github.com/OXY2DEV/markview.nvim',
     'https://github.com/folke/trouble.nvim',
@@ -126,7 +118,6 @@ vim.pack.add({
 
     -- Copilot
     'https://github.com/zbirenbaum/copilot.lua',
-    'https://github.com/zbirenbaum/copilot-cmp',
 
     -- Neovim tips
     'https://github.com/saxon1964/neovim-tips',
@@ -839,9 +830,13 @@ require("search-replace").setup({
     default_replace_multi_buffer_options = "egcI",
 })
 
+-- Snacks
+require("snacks").setup({
+    bigfile = { enabled = true },
+})
+
 -- Copilot
 require("copilot").setup()
-require("copilot_cmp").setup()
 
 -- Dir-telescope
 require("dir-telescope").setup({

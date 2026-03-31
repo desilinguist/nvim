@@ -24,6 +24,14 @@
       "rev": "33eb067e3d7029ac77e081cfe7c45361887a311a",
       "src": "https://github.com/LunarVim/bigfile.nvim"
     },
+    "blink-cmp-copilot": {
+      "rev": "439cff78780c033aa23cf061d7315314b347e3c1",
+      "src": "https://github.com/giuxtaposition/blink-cmp-copilot"
+    },
+    "blink.cmp": {
+      "rev": "5e088706d92da09949e081cc4d49e2c9ba8cfc8c",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
     "bufferline.nvim": {
       "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
       "src": "https://github.com/akinsho/bufferline.nvim"

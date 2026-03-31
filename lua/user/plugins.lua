@@ -160,7 +160,7 @@ treesitter.setup()
 treesitter.install({ 'awk', 'bash', 'bibtex', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'commonlisp', 'cpp', 'css', 'csv', 'diff', 'disassembly', 'dockerfile', 'dot', 'doxygen', 'dtd', 'fish', 'fortran', 'git_config', 'git_rebase', 'gitattributes', 'gitcommit', 'gitignore', 'gnuplot', 'go', 'gpg', 'haskell', 'hcl', 'html', 'http', 'ini', 'java', 'javascript', 'jq', 'jsdoc', 'json', 'json5', 'jsonnet', 'julia', 'kotlin', 'llvm', 'lua', 'luadoc', 'make', 'markdown', 'markdown_inline', 'matlab', 'mermaid', 'nim', 'nim_format_string', 'nix', 'objc', 'objdump', 'pascal', 'passwd', 'pem', 'perl', 'php', 'php_only', 'phpdoc', 'printf', 'properties', 'pymanifest', 'python', 'r', 'readline', 'regex', 'requirements', 'rst', 'ruby', 'rust', 'scss', 'sql', 'ssh_config', 'tcl', 'terraform', 'tmux', 'todotxt', 'toml', 'tsv', 'typescript', 'vim', 'vimdoc', 'xml', 'yaml', 'zig' })
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'python', 'lua', 'markdown', 'json' },
+    pattern = { 'python', 'lua', 'json' },
     callback = function()
         vim.treesitter.start()
     end
@@ -455,13 +455,13 @@ require("which-key").add({
     },
     {
         "<leader>li",
-        "<cmd>LspInfo<cr>",
+        "<cmd>checkhealth lsp<cr>",
         desc = "Info",
     },
     {
         "<leader>lI",
-        "<cmd>LspInstallInfo<cr>",
-        desc = "Installer Info",
+        "<cmd>Mason<cr>",
+        desc = "Mason",
     },
     {
         "<leader>lj",
@@ -656,16 +656,19 @@ require("which-key").add({
     { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
     { "<leader>ab", function() vim.cmd("ClaudeCodeAdd " .. vim.fn.expand("%")) end, desc = "Add current buffer" },
     { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                  desc = "Send to Claude" },
-    {
-        "<leader>as",
-        "<cmd>ClaudeCodeTreeAdd<cr>",
-        desc = "Add file",
-        ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
-    },
     { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
     { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Deny diff" },
     { "<leader>an", "<cmd>ClaudeCodeNew<cr>",        desc = "New Claude session" },
     { "<leader>al", "<cmd>ClaudeCodeSessions<cr>",   desc = "List Claude sessions" },
+})
+
+-- Buffer-local mapping for tree filetypes
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'NvimTree', 'neo-tree', 'oil', 'minifiles', 'netrw' },
+    callback = function(ev)
+        vim.keymap.set('n', '<leader>as', '<cmd>ClaudeCodeTreeAdd<cr>',
+            { buffer = ev.buf, desc = "Add file" })
+    end,
 })
 
 -- NvimTree

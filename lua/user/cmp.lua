@@ -6,6 +6,7 @@ end
 require("luasnip/loaders/from_vscode").lazy_load()
 
 blink.setup({
+	fuzzy = { implementation = "lua" },
 	snippets = { preset = "luasnip" },
 
 	sources = {

@@ -36,7 +36,7 @@ vim.pack.add({
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
 
     -- Completion
-    { src = 'https://github.com/saghen/blink.cmp', version = 'v1.*' },
+    { src = 'https://github.com/saghen/blink.cmp', version = 'v1.10.2' },
     'https://github.com/giuxtaposition/blink-cmp-copilot',
 
     -- Snippets

@@ -13,11 +13,11 @@
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "SchemaStore.nvim": {
-      "rev": "4f1c58a59d3a4da095743dd6f04b73caa0cefc3d",
+      "rev": "6d0329adb9c8cbe51b9a28299890a5eb104db7dc",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "autolist.nvim": {
-      "rev": "5f70a5f99e96c8fe3069de042abd2a8ed2deb855",
+      "rev": "339499695d3be8c44aefef1d2516464758957004",
       "src": "https://github.com/gaoDean/autolist.nvim"
     },
     "bigfile.nvim": {
@@ -31,7 +31,7 @@
     "blink.cmp": {
       "rev": "5e088706d92da09949e081cc4d49e2c9ba8cfc8c",
       "src": "https://github.com/saghen/blink.cmp",
-      "version": "'v1.*'"
+      "version": "'v1.10.2'"
     },
     "bufferline.nvim": {
       "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
@@ -87,7 +87,7 @@
       "src": "https://github.com/zbirenbaum/copilot-cmp"
     },
     "copilot.lua": {
-      "rev": "faa347cef2a9429eec14dada549e000a3b8d0fc9",
+      "rev": "07aa57148ac28986bab9f55e87ee3d929e2726b1",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "dir-telescope.nvim": {
@@ -103,7 +103,7 @@
       "src": "https://github.com/PHSix/faster.nvim"
     },
     "fidget.nvim": {
-      "rev": "7fa433a83118a70fe24c1ce88d5f0bd3453c0970",
+      "rev": "889e2e96edef4e144965571d46f7a77bcc4d0ddf",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "friendly-snippets": {
@@ -115,7 +115,7 @@
       "src": "https://github.com/wintermute-cell/gitignore.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "caa98e2e5e4c23a1652c23be839d2e1722cecc29",
+      "rev": "07ff073b84d3ef48f286529c36658a65d1a64707",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "hbac.nvim": {
@@ -127,11 +127,11 @@
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
     "lsp_signature.nvim": {
-      "rev": "af7e4074d85d785cf6614352ba9ad3b28a1f8a56",
+      "rev": "a381eb443cae078541297dc71674fa9c95e52a9e",
       "src": "https://github.com/ray-x/lsp_signature.nvim"
     },
     "lualine.nvim": {
-      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "rev": "8811f3f3f4dc09d740c67e9ce399e7a541e2e5b2",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "markview.nvim": {
@@ -159,7 +159,7 @@
       "src": "https://github.com/tamago324/nlsp-settings.nvim"
     },
     "none-ls.nvim": {
-      "rev": "c9317c2a8629d4e39e7cf47be74cb67f3ab37cda",
+      "rev": "6ad251ef07dd4ba0cc725a5553cc76e9923f1a4a",
       "src": "https://github.com/nvimtools/none-ls.nvim"
     },
     "nui.nvim": {
@@ -179,7 +179,7 @@
       "src": "https://github.com/NvChad/nvim-colorizer.lua"
     },
     "nvim-lspconfig": {
-      "rev": "5492a24edd68f78d8a778edcb8905d0a28993abc",
+      "rev": "ffd2b00f8dd0ee07bd1252ef3857e28ea3272d56",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -195,7 +195,7 @@
       "src": "https://github.com/ojroques/nvim-osc52"
     },
     "nvim-surround": {
-      "rev": "61319d4bd1c5e336e197defa15bd104c51f0fb29",
+      "rev": "19e39478ccf5fa2eefdb3595af2f2927d0ff2416",
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-toggler": {
@@ -203,15 +203,15 @@
       "src": "https://github.com/nguyenvukhang/nvim-toggler"
     },
     "nvim-tree.lua": {
-      "rev": "3603f069ff783c31986894a56c2a6755331b0802",
+      "rev": "31503ad5d869fca61461d82a9126f62480ecb0ab",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
-      "rev": "adf4b6b0420b7be6c717ef0ac7993183d6c201b1",
+      "rev": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-treesitter-textobjects": {
@@ -228,7 +228,7 @@
       "src": "https://github.com/kevinhwang91/nvim-ufo"
     },
     "nvim-web-devicons": {
-      "rev": "d7462543c9e366c0d196c7f67a945eaaf5d99414",
+      "rev": "40e9d5a6cc3db11b309e39593fc7ac03bb844e38",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "persisted.nvim": {

@@ -59,7 +59,6 @@ vim.pack.add({
     'https://github.com/LinArcX/telescope-env.nvim',
     'https://github.com/princejoogie/dir-telescope.nvim',
     'https://github.com/nvim-telescope/telescope-live-grep-args.nvim',
-    'https://github.com/debugloop/telescope-undo.nvim',
 
     -- Git
     'https://github.com/lewis6991/gitsigns.nvim',
@@ -308,7 +307,7 @@ require("which-key").add({
     },
     {
         "<leader>u",
-        "<cmd>Telescope undo<cr>",
+        "<cmd>Undotree<cr>",
         desc = "Undo Tree",
     },
     {

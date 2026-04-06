@@ -118,9 +118,6 @@ telescope.load_extension("toggletasks")
 -- load the persisted extension
 telescope.load_extension("persisted")
 
--- load the undo extension
-telescope.load_extension("undo")
-
 -- load the hbac extension
 telescope.load_extension('hbac')
 

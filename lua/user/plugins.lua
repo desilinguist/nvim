@@ -31,7 +31,7 @@ vim.pack.add({
     'https://github.com/tiagovla/tokyodark.nvim',
 
     -- Treesitter
-    'https://github.com/nvim-treesitter/nvim-treesitter',
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', branch = 'main'},
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects', version = 'main' },
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
 

@@ -50,6 +50,7 @@ local options = {
 vim.loader.enable()
 
 vim.opt.shortmess:append("c")
+vim.opt.shortmess:append("I") -- skip the intro/splash screen on startup
 
 for k, v in pairs(options) do
 	vim.opt[k] = v

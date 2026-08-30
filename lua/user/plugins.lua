@@ -27,7 +27,6 @@ vim.pack.add({
     'https://github.com/folke/snacks.nvim',
 
     -- Colorschemes (load early)
-    'https://github.com/folke/tokyonight.nvim',
     'https://github.com/tiagovla/tokyodark.nvim',
 
     -- Treesitter
@@ -122,24 +121,12 @@ vim.pack.add({
     'https://github.com/saxon1964/neovim-tips',
 
     -- Claude Code
-    'https://github.com/snirt/claudecode.nvim',
+    -- 'https://github.com/snirt/claudecode.nvim',
 })
 
 -------------------------------------------------------------------------------
 -- Plugin configurations
 -------------------------------------------------------------------------------
-
--- Tokyonight
-require("tokyonight").setup({
-    style = "night",
-    styles = {
-        functions = { italic = true },
-    },
-    on_colors = function(colors)
-        colors.hint = colors.orange
-        colors.error = "#ff0000"
-    end,
-})
 
 -- Tokyodark
 require("tokyodark").setup({})
@@ -638,28 +625,28 @@ require("which-key").add({
     { "<leader>ntp", ":NeovimTipsPdf<CR>",    desc = "Open tips PDF" },
 
     -- Claude Code
-    { "<leader>a",  nil,                              desc = "AI/Claude Code" },
-    { "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
-    { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
-    { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
-    { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-    { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-    { "<leader>ab", function() vim.cmd("ClaudeCodeAdd " .. vim.fn.expand("%")) end, desc = "Add current buffer" },
-    { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                  desc = "Send to Claude" },
-    { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
-    { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Deny diff" },
-    { "<leader>an", "<cmd>ClaudeCodeNew<cr>",        desc = "New Claude session" },
-    { "<leader>al", "<cmd>ClaudeCodeSessions<cr>",   desc = "List Claude sessions" },
+    -- { "<leader>a",  nil,                              desc = "AI/Claude Code" },
+    -- { "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
+    -- { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
+    -- { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
+    -- { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+    -- { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+    -- { "<leader>ab", function() vim.cmd("ClaudeCodeAdd " .. vim.fn.expand("%")) end, desc = "Add current buffer" },
+    -- { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                  desc = "Send to Claude" },
+    -- { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+    -- { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Deny diff" },
+    -- { "<leader>an", "<cmd>ClaudeCodeNew<cr>",        desc = "New Claude session" },
+    -- { "<leader>al", "<cmd>ClaudeCodeSessions<cr>",   desc = "List Claude sessions" },
 })
 
 -- Buffer-local mapping for tree filetypes
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'NvimTree', 'neo-tree', 'oil', 'minifiles', 'netrw' },
-    callback = function(ev)
-        vim.keymap.set('n', '<leader>as', '<cmd>ClaudeCodeTreeAdd<cr>',
-            { buffer = ev.buf, desc = "Add file" })
-    end,
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--     pattern = { 'NvimTree', 'neo-tree', 'oil', 'minifiles', 'netrw' },
+--     callback = function(ev)
+--         vim.keymap.set('n', '<leader>as', '<cmd>ClaudeCodeTreeAdd<cr>',
+--             { buffer = ev.buf, desc = "Add file" })
+--     end,
+-- })
 
 -- NvimTree
 require("nvim-tree").setup({
@@ -810,15 +797,18 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
--- Codesnap
-require("codesnap").setup({
-    snapshot_config = {
-        watermark = {
-            content = "",
+-- Codesnap (deferred: pulls in a compiled FFI generator that's only needed
+-- once you actually take a snapshot)
+vim.schedule(function()
+    require("codesnap").setup({
+        snapshot_config = {
+            watermark = {
+                content = "",
+            },
+            background = "#00000000",
         },
-        background = "#00000000",
-    },
-})
+    })
+end)
 
 -- Typo
 require("typo").setup()
@@ -834,8 +824,11 @@ require("snacks").setup({
     bigfile = { enabled = true },
 })
 
--- Copilot
-require("copilot").setup()
+-- Copilot (deferred: not needed before the first redraw, and pulls in its
+-- own LSP client machinery)
+vim.schedule(function()
+    require("copilot").setup()
+end)
 
 -- Dir-telescope
 require("dir-telescope").setup({
@@ -861,5 +854,8 @@ require("neovim_tips").setup({
     bookmark_symbol = "🌟 ",
 })
 
--- Claude Code
-require("claudecode").setup()
+-- Claude Code (deferred: its terminal/server/tools chain is only needed once
+-- you actually invoke it)
+-- vim.schedule(function()
+--     require("claudecode").setup()
+-- end)

@@ -37,7 +37,18 @@ function _G.set_terminal_keymaps()
 	vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+-- Only apply these terminal-mode keymaps to toggleterm's own terminals.
+-- Using `term://*` unconditionally also matches other plugins' terminal
+-- buffers (e.g. fzf-lua's internal fzf process), which hijacks <Esc> before
+-- it can reach them, requiring a second <Esc> to actually close/abort.
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "term://*",
+	callback = function()
+		if vim.b.toggle_number then
+			set_terminal_keymaps()
+		end
+	end,
+})
 
 -- are we local or on the GCP instance
 local machine = os.getenv("NVIM_MACHINE")

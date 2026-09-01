@@ -7,10 +7,6 @@ vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
         if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
         vim.cmd('TSUpdate')
     end
-    if name == 'telescope-fzf-native.nvim' and (kind == 'install' or kind == 'update') then
-        local dir = vim.fn.stdpath('data') .. '/site/pack/core/opt/telescope-fzf-native.nvim'
-        vim.fn.system({ 'make', '-C', dir })
-    end
     if name == 'codesnap.nvim' and (kind == 'install' or kind == 'update') then
         local dir = vim.fn.stdpath('data') .. '/site/pack/core/opt/codesnap.nvim'
         vim.fn.system({ 'make', '-C', dir })
@@ -52,12 +48,8 @@ vim.pack.add({
     'https://github.com/b0o/SchemaStore.nvim',
     'https://github.com/j-hui/fidget.nvim',
 
-    -- Telescope
-    'https://github.com/nvim-telescope/telescope.nvim',
-    'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
-    'https://github.com/LinArcX/telescope-env.nvim',
-    'https://github.com/princejoogie/dir-telescope.nvim',
-    'https://github.com/nvim-telescope/telescope-live-grep-args.nvim',
+    -- Fzf-lua (fuzzy finder)
+    'https://github.com/ibhagwan/fzf-lua',
 
     -- Git
     'https://github.com/lewis6991/gitsigns.nvim',
@@ -220,7 +212,7 @@ require("which-key").add({
     },
     {
         "<leader>C",
-        "<cmd>Telescope commands<cr>",
+        "<cmd>FzfLua commands<cr>",
         desc = "Find commands",
     },
     {
@@ -236,15 +228,13 @@ require("which-key").add({
     {
         "<leader>f",
         function()
-            require("telescope.builtin").find_files(
-                require("telescope.themes").get_dropdown({ previewer = false })
-            )
+            require("fzf-lua").files({ previewer = false })
         end,
         desc = "Find files",
     },
     {
         "<leader>F",
-        "<cmd>Telescope live_grep_args theme=ivy<cr>",
+        "<cmd>FzfLua live_grep<cr>",
         desc = "Find Text",
     },
     {
@@ -265,20 +255,18 @@ require("which-key").add({
     {
         "<leader>N",
         function()
-            require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({
+            require("fzf-lua").files({
                 previewer = false,
                 cwd = vim.fn.stdpath("config"),
-                prompt_title = "Find Config File",
-            }))
+                prompt = "Find Config File> ",
+            })
         end,
         desc = "Find Config File",
     },
     {
         "<leader>o",
         function()
-            require("telescope.builtin").oldfiles(
-                require("telescope.themes").get_dropdown({ previewer = false })
-            )
+            require("fzf-lua").oldfiles({ previewer = false })
         end,
         desc = "Old Files",
     },
@@ -299,7 +287,9 @@ require("which-key").add({
     },
     {
         "<leader>v",
-        "<cmd>Telescope env<cr>",
+        function()
+            require("user.fzf-lua").env_vars()
+        end,
         desc = "Env Vars",
     },
     {
@@ -380,17 +370,17 @@ require("which-key").add({
     },
     {
         "<leader>go",
-        "<cmd>Telescope git_status<cr>",
+        "<cmd>FzfLua git_status<cr>",
         desc = "Open changed file",
     },
     {
         "<leader>gb",
-        "<cmd>Telescope git_branches<cr>",
+        "<cmd>FzfLua git_branches<cr>",
         desc = "Checkout branch",
     },
     {
         "<leader>gc",
-        "<cmd>Telescope git_commits<cr>",
+        "<cmd>FzfLua git_commits<cr>",
         desc = "Checkout commit",
     },
     {
@@ -420,7 +410,7 @@ require("which-key").add({
     },
     {
         "<leader>lw",
-        "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+        "<cmd>FzfLua diagnostics_workspace<cr>",
         desc = "Workspace Diagnostics",
     },
     {
@@ -478,18 +468,14 @@ require("which-key").add({
     {
         "<leader>lr",
         function()
-            require("telescope.builtin").lsp_document_symbols(
-                require("telescope.themes").get_dropdown({ previewer = false })
-            )
+            require("fzf-lua").lsp_document_symbols({ previewer = false })
         end,
         desc = "Document Symbols",
     },
     {
         "<leader>lR",
         function()
-            require("telescope.builtin").lsp_dynamic_workspace_symbols(
-                require("telescope.themes").get_dropdown({ previewer = false })
-            )
+            require("fzf-lua").lsp_live_workspace_symbols({ previewer = false })
         end,
         desc = "Workspace Symbols",
     },
@@ -538,42 +524,44 @@ require("which-key").add({
     { "<leader>s", group = "Search" },
     {
         "<leader>sc",
-        "<cmd>Telescope colorscheme<cr>",
+        "<cmd>FzfLua colorschemes<cr>",
         desc = "Colorscheme",
     },
     {
         "<leader>sh",
-        "<cmd>Telescope help_tags<cr>",
+        "<cmd>FzfLua helptags<cr>",
         desc = "Find Help",
     },
     {
         "<leader>sM",
-        "<cmd>Telescope man_pages<cr>",
+        "<cmd>FzfLua manpages<cr>",
         desc = "Man Pages",
     },
     {
         "<leader>sr",
-        "<cmd>Telescope oldfiles<cr>",
+        "<cmd>FzfLua oldfiles<cr>",
         desc = "Open Recent File",
     },
     {
         "<leader>sR",
-        "<cmd>Telescope registers<cr>",
+        "<cmd>FzfLua registers<cr>",
         desc = "Registers",
     },
     {
         "<leader>sk",
-        "<cmd>Telescope keymaps<cr>",
+        "<cmd>FzfLua keymaps<cr>",
         desc = "Keymaps",
     },
     {
         "<leader>sC",
-        "<cmd>Telescope commands<cr>",
+        "<cmd>FzfLua commands<cr>",
         desc = "Commands",
     },
     {
         "<leader>ss",
-        "<cmd>Telescope persisted theme=dropdown<cr>",
+        function()
+            require("user.fzf-lua").persisted_sessions()
+        end,
         desc = "Sessions",
     },
 
@@ -604,14 +592,14 @@ require("which-key").add({
     {
         "<leader>tr",
         function()
-            require("telescope").extensions.toggletasks.spawn(require("telescope.themes").get_ivy())
+            require("user.fzf-lua").toggletasks_spawn()
         end,
         desc = "Tasks",
     },
     {
         "<leader>to",
         function()
-            require("telescope").extensions.toggletasks.select(require("telescope.themes").get_ivy())
+            require("user.fzf-lua").toggletasks_select()
         end,
         desc = "Task Outputs",
     },
@@ -829,12 +817,6 @@ require("snacks").setup({
 vim.schedule(function()
     require("copilot").setup()
 end)
-
--- Dir-telescope
-require("dir-telescope").setup({
-    hidden = false,
-    respect_gitignore = true,
-})
 
 -- Hbac
 require("hbac").setup()

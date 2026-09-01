@@ -90,10 +90,6 @@
       "rev": "7e6723aabea044519462958ffcea68d7985c5ed0",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
-    "dir-telescope.nvim": {
-      "rev": "805405b9f98dc3470f8676773dc0e6151a9158ed",
-      "src": "https://github.com/princejoogie/dir-telescope.nvim"
-    },
     "dressing.nvim": {
       "rev": "2d7c2db2507fa3c4956142ee607431ddb2828639",
       "src": "https://github.com/stevearc/dressing.nvim"
@@ -113,6 +109,10 @@
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "fzf-lua": {
+      "rev": "05e44d38de0a79c11fba5f7bf8138791b1dbdd1e",
+      "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitignore.nvim": {
       "rev": "0344f643768c4d64af4add8c1bdddf6f7d4c9010",
@@ -279,25 +279,9 @@
       "rev": "6325416da8f89992b005db3e4517aaef0242602e",
       "src": "https://github.com/wellle/targets.vim"
     },
-    "telescope-env.nvim": {
-      "rev": "00a703cc7b713cdda0a981d88fddf3ce25502af5",
-      "src": "https://github.com/LinArcX/telescope-env.nvim"
-    },
-    "telescope-fzf-native.nvim": {
-      "rev": "b25b749b9db64d375d782094e2b9dce53ad53a40",
-      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-    },
-    "telescope-live-grep-args.nvim": {
-      "rev": "53e9df55b3651dd7cf77e172f1e8c9a17407acca",
-      "src": "https://github.com/nvim-telescope/telescope-live-grep-args.nvim"
-    },
     "telescope-undo.nvim": {
       "rev": "928d0c2dc9606e01e2cc547196f48d2eaecf58e5",
       "src": "https://github.com/debugloop/telescope-undo.nvim"
-    },
-    "telescope.nvim": {
-      "rev": "40aedd8a68c78a656a10a8d62d80c54af59420fb",
-      "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "tidy.nvim": {
       "rev": "8b6921150b16f38f48a2459a844a0c2b4c916914",
